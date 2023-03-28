@@ -1,5 +1,7 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+    <h1 class="text-white">Adminの登録</h1>
+    
+    <form method="POST" action="{{ route('admin.register') }}" enctype="multipart/form-data">
         @csrf
 
         <!-- Name -->
@@ -38,29 +40,30 @@
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
-        
-        <!-- Birthday -->
-         <div class="mt-4">
-        <x-input-label for="birthday" :value="__('Birthday')" />
-        <x-text-input id="birthday" class="block mt-1 w-full" type="date" name="birthday" :value="old('birthday')" required />
-        <x-input-error :messages="$errors->get('birthday')" class="mt-2" />
-    </div>
 
+            <!-- License -->
+            <div class="mt-4">
+                <x-input-label for="license" :value="__('資格')" />
+            
+                <x-textarea-input id="license" class="block mt-1 w-full"
+                                name="license"
+                                required autocomplete="license">{{ old('license') }}</x-textarea-input>
+            
+                <x-input-error :messages="$errors->get('license')" class="mt-2" />
+            </div>
+            
+        <!-- Career -->
+        <div class="mt-4">
+            <x-input-label for="career" :value="__('経歴')" />
         
-        <!-- Gender -->
-         <div class="mt-4">
-    <x-input-label for="gender" :value="__('Gender')" />
-
-    <select id="gender" name="gender"
-            class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:bg-white focus:outline-none">
-        <option value="">-- Select gender --</option>
-        <option value="male" {{ old('gender') === 'male' ? 'selected' : '' }}>Male</option>
-        <option value="female" {{ old('gender') === 'female' ? 'selected' : '' }}>Female</option>
-        <option value="other" {{ old('gender') === 'other' ? 'selected' : '' }}>Other</option>
-    </select>
-    </div>
-    
-    <!-- Personality_type -->
+            <x-textarea-input id="career" class="block mt-1 w-full"
+                            name="career"
+                            required autocomplete="career">{{ old('career') }}</x-textarea-input>
+        
+        <x-input-error :messages="$errors->get('career')" class="mt-2" />
+        </div>
+        
+        <!-- Personality_type -->
     <div class="mt-4">
     <x-input-label for="personalities" :value="__('性格診断結果')" />
 
@@ -94,7 +97,19 @@
         </div>
         
         
-        <!-- プロフィール画像アップロード -->
+    <!-- URL -->
+  <div class="mt-4">
+                <x-input-label for="url" :value="__('アイテマスURL')" />
+            
+                <x-textarea-input id="url" class="block mt-1 w-full"
+                                name="url"
+                                required autocomplete="url">{{ old('url') }}</x-textarea-input>
+            
+                <x-input-error :messages="$errors->get('url')" class="mt-2" />
+            </div>
+ 
+ 
+<!-- プロフィール画像アップロード -->
         <div class="mt-4">
     <x-input-label for="profile_image" :value="__('Profile Image')" />
     <input id="profile_image" type="file" name="profile_image" />
