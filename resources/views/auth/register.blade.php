@@ -4,7 +4,7 @@
 
         <!-- Name -->
         <div>
-            <x-input-label for="name" :value="__('Name')" />
+            <x-input-label for="name" :value="__('名前')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
@@ -18,7 +18,7 @@
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label for="password" :value="__('パスワード')" />
 
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
@@ -30,7 +30,7 @@
 
         <!-- Confirm Password -->
         <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+            <x-input-label for="password_confirmation" :value="__('パスワードの確認')" />
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full"
                             type="password"
@@ -41,7 +41,7 @@
         
         <!-- Birthday -->
          <div class="mt-4">
-        <x-input-label for="birthday" :value="__('Birthday')" />
+        <x-input-label for="birthday" :value="__('生年月日')" />
         <x-text-input id="birthday" class="block mt-1 w-full" type="date" name="birthday" :value="old('birthday')" required />
         <x-input-error :messages="$errors->get('birthday')" class="mt-2" />
     </div>
@@ -49,7 +49,7 @@
         
         <!-- Gender -->
          <div class="mt-4">
-    <x-input-label for="gender" :value="__('Gender')" />
+    <x-input-label for="gender" :value="__('性別')" />
 
     <select id="gender" name="gender"
             class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:bg-white focus:outline-none">
@@ -62,7 +62,7 @@
     
     <!-- Personality_type -->
     <div class="mt-4">
-    <x-input-label for="personalities" :value="__('性格診断結果')" />
+    <x-input-label for="personalities" :value="__('16personalities 診断結果')" />
 
     <select id="personalities" name="personalities" class="block mt-1 w-full">
        
@@ -96,7 +96,7 @@
         
         <!-- プロフィール画像アップロード -->
         <div class="mt-4">
-    <x-input-label for="profile_image" :value="__('Profile Image')" />
+    <x-input-label for="profile_image" :value="__('プロフィール画像登録')" />
     <input id="profile_image" type="file" name="profile_image" />
     <x-input-error :messages="$errors->get('profile_image')" class="mt-2" />
 </div>
