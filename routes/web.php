@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisteredUserController;
+use App\Http\Controllers\CoachController;
 use App\Http\Controllers\Admin\AdminRegisterController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -61,3 +62,19 @@ Route::group(['prefix' => 'admin'], function () {
             ->name('admin.dashboard');
     });
 });
+
+
+/*
+|--------------------------------------------------------------------------
+|coach research Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+Route::get('admin/list', [CoachController::class, 'select'])
+    ->name('admin.list');
+    

@@ -17,13 +17,13 @@ return new class extends Migration
             $table->id()->comment('コーチID');
             $table->integer('category_id')->comment('ジャンルID')->nullable();
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->string('license')->comment('資格');
             $table->text('career')->comment('経歴');
-            $table->enum('personalities',['建築家','論理学者','指揮官','討論者','提唱者','仲介者','主人公','広報運動家','管理者','擁護者','幹部','領事館','巨匠','冒険者','起業家','エンターテイナー'])->coment('');
+            $table->enum('personalities',['建築家','論理学者','指揮官','討論者','提唱者','仲介者','主人公','広報運動家','管理者','擁護者','幹部','領事館','巨匠','冒険者','起業家','エンターテイナー'])->comment('');
             $table->string('url');
             $table->string('profile_image')->nullable();
             $table->timestamps();
