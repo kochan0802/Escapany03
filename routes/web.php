@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AdminRegisterController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TasksController;   
 
 /*
 |--------------------------------------------------------------------------
@@ -78,3 +79,23 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('admin/list', [CoachController::class, 'select'])
     ->name('admin.list');
     
+/*
+|--------------------------------------------------------------------------
+| Todotask
+|--------------------------------------------------------------------------
+
+*/
+
+Route::get('tasks/index', [TasksController::class, 'index'])->name('tasks.index');
+//詳細ページ
+Route::get('/{id}', [TasksController::class, 'show'])->name('tasks.show');
+// タスク追加
+Route::get('/tasks/add', [TasksController::class, 'add'])->name('tasks.add');
+// 追加したタスクをデータベースに追加
+Route::post('/tasks/add', [TasksController::class, 'store'])->name('tasks.store');
+//タスクの編集
+Route::get('/tasks/edit/{id}', [TasksController::class, 'edit'])->name('tasks.edit');
+
+Route::post('/tasks/edit/{id}', [TasksController::class, 'update'])->name('tasks.update');
+
+Route::post('tasks/delete/{id}', [TasksController::class, 'delete'])->name('tasks.delete');
