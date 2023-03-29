@@ -13,8 +13,9 @@ class CoachController extends Controller {
 
         //値を取得
         $category_name = $req->input('category_name');
-        $personality = $req->input('personality');
-
+        $personalities = $req->input('personalities');
+        // dd($personalities);
+        
         // 検索QUERY
         $query = Admin::query();
 
@@ -23,14 +24,16 @@ class CoachController extends Controller {
             $query->on('admins.category_id', '=', 'categories.category_id');
         });
 
+
+        // もし「16personality」があれば
+        if(!empty($personalities)){
+            $query->where('personalities','like','%'.$personalities.'%');
+       
+        }
+
         // もし「ジャンル名」があれば
         if(!empty($category_name)){
             $query->where('category_name','like','%'.$category_name.'%');
-        }
-
-        // もし「16personality」があれば
-        if(!empty($personality)){
-            $query->where('address','like','%'.$personality.'%');
         }
 
         // ページネーション
@@ -39,10 +42,16 @@ class CoachController extends Controller {
         // ビューへ渡す値を配列に格納
         $hash = array(
             'category_name' => $category_name, //pass parameter to pager
-            'personality' => $personality, //pass parameter to pager
+            'personality' => $personalities, //pass parameter to pager
             'coaches' => $coaches, //Eloquent
         );
 
         return view('admin.list')->with($hash);
     }
+    
+//     public function show($id)
+// {
+//   $coaches = Tweet::find($id);
+//   return response()->view('admin.show', compact('coach'));
+// }
 }

@@ -63,7 +63,17 @@
         <x-input-error :messages="$errors->get('career')" class="mt-2" />
         </div>
         
-        <!-- Personality_type -->
+        
+        <!--  ability_type -->
+    <div class="mt-4">
+    <x-input-label for="category_id" :value="__('得意ジャンル')" />
+
+    <select id="category_id" name="personalities" class="block mt-1 w-full">
+   
+    <option value="">-- Strong asset  --</option>   
+    <option value="建築家" {{ old('personalities') === '建築家' ? 'selected' : '' }}>建築家</option>
+       
+       
     <div class="mt-4">
     <x-input-label for="personalities" :value="__('性格診断結果')" />
 
