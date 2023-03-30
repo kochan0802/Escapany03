@@ -1,3 +1,7 @@
+<style>
+
+</style>
+
 
 <x-app-layout>
     <x-masteradmin>
@@ -21,7 +25,7 @@
             @csrf
 
             <div class="form-group">
-                <label for="number" class="control-label col-xs-2">ジャンル</label>
+                <label for="number" class="control-label col-xs-2">興味のあるジャンル</label>
                 <div class="col-xs-10">
                     <select name="category_name" class="form-control select select-primary mbl">
                         <option value="やりたいこと探し" {{ $category_name == 'やりたいこと探し' ? 'selected' : '' }}>やりたいこと探し</option> 
@@ -38,7 +42,7 @@
                 </div>
 
             <div class="form-group">
-                <label for="number" class="control-label col-xs-2">性格診断</label>
+                <label for="number" class="control-label col-xs-2">自分の性格診断結果</label>
                 <div class="col-xs-10">
                     <select name="personalities" class="form-control select select-primary mbl">
                         <optgroup label="分析家">
@@ -76,38 +80,37 @@
             @endsection
             
             @section('table')
-            
-            <table class="table table-striped">
-              <tr>
-                <th>名前</th>
-                <th>ジャンル</th>
-                <th>性格診断</th>
-                <th>キャリア</th>
-                <th>資格</th>
-              </tr>
+          
+          
               <!-- loop -->
-              <div class="bg-white d overflow-hidden shadow-sm sm:rounded-lg">
-              @foreach($coaches as $coach)
-              <a href="{{ route('admin.show',$coach->id) }}">
-                  <div>
-                 <p>{{ $coach->name }}</p>  
-                  <p>{{ $coach->category_name }}</p>  
-                  <p>{{ $coach->personalities }}</p> 
-                  <p>{{ $coach->career }}</p> 
-                  <p>{{ $coach->career }}</p>
-                  <p>{{ $coach->license }}</p></div>
-                </a>
-                
-              <!--<tr>-->
-              <!--  <td>-->
-              <!--      <p>{{ $coach->name }}</p></td>-->
-              <!--  <td><p>{{ $coach->category_name }}</td>-->
-              <!--  <td>{{ $coach->personalities }}</td>-->
-              <!--  <td>{{ $coach->career }}</td>-->
-              <!--  <td>{{ $coach->license }}</td>-->
-              <!--</tr>-->
               
-              @endforeach
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>名前</th>
+                  <th>ジャンル</th>
+                  <th>性格診断</th>
+                  <th>キャリア</th>
+                  <th>資格</th>
+                </tr>
+              </thead>
+            
+              <tbody>
+              <div class="bg-white d overflow-hidden shadow-sm sm:rounded-lg">
+                @foreach($coaches as $coach)
+                <tr>
+                  <td>
+                    <a href="{{ route('admin.show',$coach->id) }}">
+                      {{ $coach->name }}
+                    </a>
+                  </td>
+                  <td>{{ $coach->category_name }}</td>
+                  <td>{{ $coach->personalities }}</td>
+                  <td>{{ $coach->career }}</td>
+                  <td>{{ $coach->license }}</td>
+                </tr>
+                @endforeach
+              </tbody>
                </div>
             </table>
             <div class="paginate text-center">

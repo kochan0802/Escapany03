@@ -11,7 +11,8 @@ class CoachController extends Controller {
     public function show($id)
     {
       $coach = Admin::find($id);
-      return response()->view('admin.show', compact('coach'));
+      $url = $coach->url;
+      return response()->view('admin.show', compact('coach', 'url'));
     }
     
     public function index(){

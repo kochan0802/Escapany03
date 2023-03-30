@@ -46,6 +46,8 @@
     
  
 </style>
+<x-app-layout>
+    
 <h1>タスク一覧</h1>
 <div class="container">
     <div class="task__add">
@@ -71,3 +73,4 @@
         @endforeach
     </table>
 </div>
+</x-app-layout>

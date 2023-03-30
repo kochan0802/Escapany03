@@ -1,3 +1,4 @@
+
 <x-app-layout>
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -33,6 +34,16 @@
                 {{$coach->license}}
               </p>
             </div>
+            
+          <div class="flex items-center mt-4">
+              <a href="{{ $url }}">
+                  <x-secondary-button class="ml-3">
+                      {{ __('コーチを予約する') }}
+                  </x-primary-button>
+              </a>
+          </div>
+            
+            
             <div class="flex items-center justify-end mt-4">
             <a href="{{ url()->previous() }}">
               <x-secondary-button class="ml-3">
