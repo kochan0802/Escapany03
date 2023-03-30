@@ -8,6 +8,21 @@ use App\Models\Coach;
 
 class CoachController extends Controller {
     
+    
+     public function show($id)
+    {
+      $coach = Coach::find($id);
+      return response()->view('admin.show', compact('coach'));
+    }
+    
+    
+    
+    
+    public function index(){
+  // 🔽 編集
+  $coaches = [];
+  return response()->view('admin.show',compact('coach'));
+}
 
     public function select(Request $req){
 
@@ -37,21 +52,21 @@ class CoachController extends Controller {
         }
 
         // ページネーション
-        $coaches = $query->paginate(5);
+        $coach = $query->paginate(5);
 
         // ビューへ渡す値を配列に格納
         $hash = array(
             'category_name' => $category_name, //pass parameter to pager
             'personality' => $personalities, //pass parameter to pager
-            'coaches' => $coaches, //Eloquent
+            'coaches' => $coach, //Eloquent
         );
-
+        
+        
+        
+        
+        $result = Coach::create($request->all());
         return view('admin.list')->with($hash);
     }
     
-//     public function show($id)
-// {
-//   $coaches = Tweet::find($id);
-//   return response()->view('admin.show', compact('coach'));
-// }
+     
 }
