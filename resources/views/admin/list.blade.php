@@ -1,5 +1,6 @@
 
-<x-masteradmin>
+<x-app-layout>
+    <x-masteradmin>
     
     <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -83,25 +84,36 @@
                 <th>性格診断</th>
                 <th>キャリア</th>
                 <th>資格</th>
-               
               </tr>
               <!-- loop -->
+              <div class="bg-white d overflow-hidden shadow-sm sm:rounded-lg">
               @foreach($coaches as $coach)
-              <tr>
-                <td>{{ $coach->name }}</td>
-                <td>{{ $coach->category_name }}</td>
-                <td>{{ $coach->personalities }}</td>
-                <td>{{ $coach->career }}</td>
-                <td>{{ $coach->license }}</td>
-              </tr>
+              <a href="{{ route('admin.show',$coach->id) }}">
+                  <div>
+                 <p>{{ $coach->name }}</p>  
+                  <p>{{ $coach->category_name }}</p>  
+                  <p>{{ $coach->personalities }}</p> 
+                  <p>{{ $coach->career }}</p> 
+                  <p>{{ $coach->career }}</p>
+                  <p>{{ $coach->license }}</p></div>
+                </a>
+                
+              <!--<tr>-->
+              <!--  <td>-->
+              <!--      <p>{{ $coach->name }}</p></td>-->
+              <!--  <td><p>{{ $coach->category_name }}</td>-->
+              <!--  <td>{{ $coach->personalities }}</td>-->
+              <!--  <td>{{ $coach->career }}</td>-->
+              <!--  <td>{{ $coach->license }}</td>-->
+              <!--</tr>-->
               
-               <!-- 🔽 詳細画面へのリンク -->
-                  <a href="{{ route('admin.show',$coach->id) }}">
               @endforeach
+               </div>
             </table>
             <div class="paginate text-center">
               {!! $coaches->appends(['category_name' => $category_name, 'personalities' => $personality])->render() !!}
             </div>
             @endsection
             
-</x-masteradmin>
+        </x-masteradmin>
+</x-app-layout>

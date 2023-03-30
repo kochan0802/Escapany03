@@ -11,25 +11,25 @@
         <div class="p-6 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-800">
           <div class="mb-6">
             <div class="flex flex-col mb-4">
-              <p class="mb-2 uppercase font-bold text-lg text-gray-800 dark:text-gray-200">Tweet</p>
-              <p class="py-2 px-3 text-gray-800 dark:text-gray-200" id="tweet">
+              <p class="mb-2 uppercase font-bold text-lg text-gray-800 dark:text-gray-200">名前</p>
+              <p class="py-2 px-3 text-gray-800 dark:text-gray-200" id="name">
                 {{$coach->name}}
               </p>
             </div>
             <div class="flex flex-col mb-4">
-              <p class="mb-2 uppercase font-bold text-lg text-gray-800 dark:text-gray-200">Description</p>
-              <p class="py-2 px-3 text-gray-800 dark:text-gray-200" id="description">
+              <p class="mb-2 uppercase font-bold text-lg text-gray-800 dark:text-gray-200">ジャンル</p>
+              <p class="py-2 px-3 text-gray-800 dark:text-gray-200" id="category_name">
                 {{$coach->category_name}}
               </p>
             </div>
             <div class="flex flex-col mb-4">
-              <p class="mb-2 uppercase font-bold text-lg text-gray-800 dark:text-gray-200">Description</p>
-              <p class="py-2 px-3 text-gray-800 dark:text-gray-200" id="description">
+              <p class="mb-2 uppercase font-bold text-lg text-gray-800 dark:text-gray-200">キャリア</p>
+              <p class="py-2 px-3 text-gray-800 dark:text-gray-200" id="career">
                 {{$coach->career}}
               </p>
             </div><div class="flex flex-col mb-4">
-              <p class="mb-2 uppercase font-bold text-lg text-gray-800 dark:text-gray-200">Description</p>
-              <p class="py-2 px-3 text-gray-800 dark:text-gray-200" id="description">
+              <p class="mb-2 uppercase font-bold text-lg text-gray-800 dark:text-gray-200">資格</p>
+              <p class="py-2 px-3 text-gray-800 dark:text-gray-200" id="license">
                 {{$coach->license}}
               </p>
             </div>

@@ -79,8 +79,12 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('admin/list', [CoachController::class, 'select'])
     ->name('admin.list');
     
-Route::get('admin/show', [CoachController::class, 'select'])
-    ->name('admin.show');
+// Route::get('admin/show/{id}', [CoachController::class, 'show'])
+//     ->name('admin.show');
+    
+Route::resource('admin', CoachController::class);
+
+
 /*
 |--------------------------------------------------------------------------
 | Todotask
