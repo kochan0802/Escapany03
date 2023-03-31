@@ -12,7 +12,8 @@ class CoachController extends Controller {
     {
         $coach = Admin::find($id);
         $url = $coach->url;
-        return view('admin.show', compact('coach', 'url'));
+        $profile_image = $coach->profile_image;
+        return view('admin.show', compact('coach', 'url' ,'profile_image'));
     }
   
     public function index()
