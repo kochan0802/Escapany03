@@ -1,5 +1,13 @@
 <style>
 
+.control-label {
+  color: white;
+}
+
+ .bg-white {
+    background-color: white;
+  }
+  
 </style>
 
 
@@ -44,7 +52,7 @@
             <div class="form-group">
                 <label for="number" class="control-label col-xs-2">自分の性格診断結果</label>
                 <div class="col-xs-10">
-                    <select name="personalities" class="form-control select select-primary mbl">
+                    <select name="personality" class="form-control select select-primary mbl">
                         <optgroup label="分析家">
                             <option value="建築家" {{ $personality == '建築家' ? 'selected' : '' }}>建築家</option>
                             <option value="論理学者" {{ $personality == '論理学者' ? 'selected' : '' }}>論理学者</option>
