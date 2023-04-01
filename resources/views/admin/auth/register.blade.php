@@ -40,7 +40,6 @@
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
-    
     <!-- License -->
     　<div class="mt-4">
         <x-input-label for="license" :value="__('カウンセリング資格')" />
@@ -60,7 +59,23 @@
         
         <x-input-error :messages="$errors->get('career')" class="mt-2" />
         </div>
-    
+    <div class="mt-4">
+    <x-input-label for="category_id" :value="__('得意ジャンル')" />
+    <select id="category_id" name="category_id" class="block mt-1 w-full">
+        <option value="">-- 選択してください --</option>   
+        <option value="1" {{ old('category_id') === '1' ? 'selected' : '' }}>やりたいこと探し</option>
+        <option value="2" {{ old('category_id') === '2' ? 'selected' : '' }}>起業</option>
+        <option value="3" {{ old('category_id') === '3' ? 'selected' : '' }}>副業</option>
+        <option value="4" {{ old('category_id') === '4' ? 'selected' : '' }}>資格取得</option>
+        <option value="5" {{ old('category_id') === '5' ? 'selected' : '' }}>パラレルワーク</option>
+        <option value="6" {{ old('category_id') === '6' ? 'selected' : '' }}>クリエイター</option>
+        <option value="7" {{ old('category_id') === '7' ? 'selected' : '' }}>自分に合った働き方</option>
+        <option value="8" {{ old('category_id') === '8' ? 'selected' : '' }}>趣味</option>
+        <option value="9" {{ old('category_id') === '9' ? 'selected' : '' }}>海外移住</option>
+        <option value="10" {{ old('category_id') === '10' ? 'selected' : '' }}>その他</option>
+    </select>
+    <x-input-error :messages="$errors->get('career')" class="mt-2" />
+</div>
         <!--  16 personalities -->
                
          <div class="mt-4">
@@ -68,7 +83,7 @@
         
             <select id="personalities" name="personalities" class="block mt-1 w-full">
                
-        <option value="">-- Personalities --</option>
+        <option value="">-- 選択してください --</option>
         <optgroup label="分析家">
         <option value="建築家" {{ old('personalities') === '建築家' ? 'selected' : '' }}>建築家</option>
         <option value="論理学者" {{ old('personalities') === '論理学者' ? 'selected' : '' }}>論理学者</option>
@@ -94,26 +109,6 @@
                 </select>
                 <x-input-error :messages="$errors->get('personalities')" class="mt-2" />
                 </div>
-                
-   <!--ability_type -->
-    <div class="mt-4">
-    <x-input-label for="category_id" :value="__('得意ジャンル')" />
-
-    <select id="category_id" name="category_id" class="block mt-1 w-full">
-   
-    <option value="">-- Strong asset  --</option>   
-    <option value="1" {{ old('category_id') === '1' ? 'selected' : '' }}>やりたいこと探し</option>
-    <option value="2" {{ old('category_id') === '2' ? 'selected' : '' }}>起業</option>
-    <option value="3" {{ old('category_id') === '3' ? 'selected' : '' }}>副業</option>
-    <option value="4" {{ old('category_id') === '4' ? 'selected' : '' }}>資格取得</option>
-    <option value="5" {{ old('category_id') === '5' ? 'selected' : '' }}>パラレルワーク</option>
-    <option value="6" {{ old('category_id') === '6' ? 'selected' : '' }}>クリエイター</option>
-    <option value="7" {{ old('category_id') === '7' ? 'selected' : '' }}>自分に合った働き方</option>
-    <option value="8" {{ old('category_id') === '8' ? 'selected' : '' }}>趣味</option>
-    <option value="9" {{ old('category_id') === '9' ? 'selected' : '' }}>海外移住</option>
-    <option value="10" {{ old('category_id') === '10' ? 'selected' : '' }}>その他</option>
-     <x-input-error :messages="$errors->get('career')" class="mt-2" />
-    </div>
             
      <!--URL -->
   <div class="mt-4">
@@ -133,8 +128,6 @@
     <input id="profile_image" type="file" name="profile_image" />
     <x-input-error :messages="$errors->get('profile_image')" class="mt-2" />
 </div>
-   
- 
    
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">

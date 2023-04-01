@@ -31,7 +31,7 @@
 <h1>タスク編集</h1>
 <div class="link">
         <div class="link__back">
-            <a href="/">戻る</a>
+             <a href="{{ route('tasks.index') }}">戻る</a>
 <div class="error">
     @foreach ($errors->all() as $error)
       <p class="error__message">{{$error}}</p>

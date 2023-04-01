@@ -52,7 +52,7 @@
     </table>
     <div class="link">
         <div class="link__back">
-            <a href="/">戻る</a>
+             <a href="{{ route('tasks.index') }}">戻る</a>
         </div>
         <div class="link__edit">
             <a href="{{ route('tasks.edit', ['id' => $task->id]) }}">編集する</a>

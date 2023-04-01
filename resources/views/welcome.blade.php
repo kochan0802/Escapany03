@@ -39,12 +39,12 @@
             @if (Route::has('admin.login'))
         <div class="hidden fixed top-0 left-0 px-6 py-4 sm:block">
             @auth('admin')
-                <a href="{{ url('Admin/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">管理者ページ</a>
+                <a href="{{ url('Admin/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">コーチページ</a>
             @else
-                <a href="{{ route('admin.login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">管理者ログイン</a>
+                <a href="{{ route('admin.login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">コーチログイン</a>
 
                 @if (Route::has('admin.register'))
-                    <a href="{{ route('admin.register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">管理者新規登録</a>
+                    <a href="{{ route('admin.register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">コーチ新規登録</a>
                 @endif
             @endauth
         </div>

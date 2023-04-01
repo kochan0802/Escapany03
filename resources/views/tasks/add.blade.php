@@ -35,7 +35,7 @@
 <h1>タスク追加</h1>
 <div class="link">
         <div class="link__back">
-            <a href="/">戻る</a>
+        <a href="{{ route('tasks.index') }}">戻る</a>
         </div>
 
 <div class="error">

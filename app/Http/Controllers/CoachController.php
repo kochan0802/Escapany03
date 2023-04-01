@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Admin;
+use App\Models\User;
 use App\Models\Coach;
 
 class CoachController extends Controller {
@@ -13,8 +14,16 @@ class CoachController extends Controller {
         $coach = Admin::find($id);
         $url = $coach->url;
         $profile_image = $coach->profile_image;
+       
         return view('admin.show', compact('coach', 'url' ,'profile_image'));
     }
+  
+    public function store(Admin $admin)
+    {
+        $coach->admins()->attach(Auth::id());
+        return redirect()->route('admin.show');
+    }
+  
   
     public function index()
     {

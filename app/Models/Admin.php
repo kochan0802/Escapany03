@@ -33,8 +33,10 @@ class Admin extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    //  public function category()
-    // {
-    //     return $this->belongsTo(Category::class);
-    // }
+    
+     public function users()
+  {
+    return $this->belongsToMany(User::class)->withTimestamps();
+  }
+
 }

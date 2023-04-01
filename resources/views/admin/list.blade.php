@@ -1,12 +1,5 @@
 <style>
 
-.control-label {
-  color: white;
-}
-
- .bg-white {
-    background-color: white;
-  }
   
 </style>
 

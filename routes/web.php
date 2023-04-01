@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TasksController;   
+use App\Http\Controllers\FavoriteController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -79,10 +81,14 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('admin/list', [CoachController::class, 'select'])
     ->name('admin.list');
     
-// Route::get('admin/show/{id}', [CoachController::class, 'show'])
-//     ->name('admin.show');
-    
+Route::get('admin/show', [CoachController::class, 'show'])
+    ->name('admin.show');
+
+Route::post('admin/show/favorites', [FavoriteController::class, 'store'])->name('favorites');
+Route::post('admin/show/unfavorites', [FavoriteController::class, 'destroy'])->name('unfavorites');
+
 Route::resource('admin', CoachController::class);
+
 
 
 /*
