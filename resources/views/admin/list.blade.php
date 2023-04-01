@@ -105,10 +105,26 @@
                       {{ $coach->name }}
                     </a>
                   </td>
-                  <td>{{ $coach->category_name }}</td>
-                  <td>{{ $coach->personalities }}</td>
-                  <td>{{ $coach->career }}</td>
-                  <td>{{ $coach->license }}</td>
+                  <td>
+                  <a href="{{ route('admin.show',$coach->id) }}">
+                  {{ $coach->category_name }}
+                 　</a>
+                 　</td>
+                 　 <td>
+                  <a href="{{ route('admin.show',$coach->id) }}">
+                 {{ $coach->personalities }}
+                 　</a>
+                 　</td>
+                 　 <td>
+                  <a href="{{ route('admin.show',$coach->id) }}">
+                {{ $coach->career }}
+                 　</a>
+                 　</td>
+                　 <td>
+                  <a href="{{ route('admin.show',$coach->id) }}">
+               {{ $coach->license }}
+                 　</a>
+                 　</td>
                 </tr>
                 @endforeach
               </tbody>
