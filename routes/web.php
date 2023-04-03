@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TasksController;   
 use App\Http\Controllers\FavoriteController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -87,7 +86,19 @@ Route::get('admin/show', [CoachController::class, 'show'])
 Route::post('admin/show/favorites', [FavoriteController::class, 'store'])->name('favorites');
 Route::post('admin/show/unfavorites', [FavoriteController::class, 'destroy'])->name('unfavorites');
 
+
+
+Route::middleware('auth')->group(function () {
+  Route::get('favorite/index', [CoachController::class, 'mydata'])->name('favorite.index');
+//   Route::resource('admin', FavoriteController::class);
+});
+
 Route::resource('admin', CoachController::class);
+
+
+// Route::get('/favorites/{admin}', [FavoriteController::class, 'index'])->name('favorites.index');
+// Route::post('/favorites', [FavoriteController::class, 'store'])->name('favorites');
+
 
 
 

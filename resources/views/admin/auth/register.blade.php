@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <h1 class="text-white">Adminの登録</h1>
+    <h1 class="text-white">コーチ登録</h1>
     
     <form method="POST" action="{{ route('admin.register') }}" enctype="multipart/form-data">
         @csrf
@@ -121,16 +121,28 @@
                 <x-input-error :messages="$errors->get('url')" class="mt-2" />
             </div>
  
+             
+             <form method="POST" action="/upload" enctype="multipart/form-data">
+                @csrf
+            
+                <div>
+                    <label for="file">ファイルを選択してください：</label>
+                    <input type="file" id="file" name="file">
+                </div>
+            
+                <button type="submit">アップロード</button>
+            </form>
+
  
 <!-- プロフィール画像アップロード -->
-        <div class="mt-4">
-    <x-input-label for="profile_image" :value="__('プロフィール画像登録')" />
-    <input id="profile_image" type="file" name="profile_image" />
-    <x-input-error :messages="$errors->get('profile_image')" class="mt-2" />
-</div>
+<!--        <div class="mt-4">-->
+<!--    <x-input-label for="profile_image" :value="__('プロフィール画像登録')" />-->
+<!--    <input id="profile_image" type="file" name="profile_image" />-->
+<!--    <x-input-error :messages="$errors->get('profile_image')" class="mt-2" />-->
+<!--</div>-->
    
         <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
+            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('admin.login') }}">
                 {{ __('すでに登録されていますか?') }}
             </a>
 

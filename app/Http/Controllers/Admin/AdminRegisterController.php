@@ -39,6 +39,9 @@ class AdminRegisterController extends Controller
         request()->file("profile_image")->move("storage/profile_images",$name);
         $imagePath = 'profile_images/' . $name;
     }
+    
+         $profile_image->save();
+         dd($profile_image);
 
 
         $admin = Admin::create([

@@ -51,5 +51,12 @@ class User extends Authenticatable
     public function admins()
   {
     return $this->belongsToMany(Admin::class)->withTimestamps();
+    
   }
+  
+  public function favorites()
+  {
+    return $this->hasMany(Admin::class);
+  }
+  
 }

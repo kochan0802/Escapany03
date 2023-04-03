@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\User;
 use App\Models\Coach;
+use Auth;
 
 class CoachController extends Controller {
     
@@ -14,15 +15,16 @@ class CoachController extends Controller {
         $coach = Admin::find($id);
         $url = $coach->url;
         $profile_image = $coach->profile_image;
-       
+
         return view('admin.show', compact('coach', 'url' ,'profile_image'));
     }
   
-    public function store(Admin $admin)
-    {
-        $coach->admins()->attach(Auth::id());
-        return redirect()->route('admin.show');
-    }
+   public function store($id)
+{
+    $coach = Admin::find($id);
+    $coach->admins()->attach(Auth::id());
+    return redirect()->route('admin.show', ['id' => $id]);
+}
   
   
     public function index()
@@ -52,5 +54,18 @@ class CoachController extends Controller {
 
         return view('admin.list', compact('coaches', 'category_name', 'personality'));
     }
+ 
+              public function mydata()
+              {
+                // Userモデルに定義したリレーションを使用してデータを取得する．
+                $admins = User::query()
+                  ->find(Auth::user()->id)
+                  ->admins()
+                  ->orderBy('name','desc')
+                  ->get();
+                //   dd($admins);
+                return response()->view('favorites.index', compact('admins'));
+              }
+
      
 }

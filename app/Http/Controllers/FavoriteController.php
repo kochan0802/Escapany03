@@ -15,10 +15,18 @@ class FavoriteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
+     
+//   public function index($admin)
+// {
+//     $favoriteCoaches = Auth::user()->favoriteCoaches;
+//     $user = User::find(Auth::id());
+//     $user->admins()->attach($admin, ['user_id' => Auth::id()]);
+//     dd($favoriteCoaches);
+    
+//     return view('favorites.index', compact('favoriteCoaches', 'coaches'));
+// }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -37,28 +45,17 @@ class FavoriteController extends Controller
      * @return \Illuminate\Http\Response
      */
      
-   public function store(Request $request)
-  {
-    // dd($request->id);
-      
-    // $coachId = $request->input('id');
-    // dd($request->input('id'));
-    
-    // $request->user()->attach(Auth::id());
-    
-        $user = User::find(Auth::id());
-        // dd($user);
-        
-        $admin = Admin::find($request->id);
-        // dd($admin);
-      $user->admins()->attach($admin->id, ['admin_id' => $admin->id, 'user_id' => Auth::id()]);
-        
-        return redirect()->route('admin.show', ['admin' => $admin->id]);
-        
-  }
-  
+ public function store(Request $request)
+{
+    $user = User::find(Auth::id());
+    $admin = Admin::find($request->id);
 
-    
+    $user->admins()->attach($admin, ['user_id' => Auth::id()]);
+
+    return redirect()->route('admin.show', ['admin' => $admin->id]);
+}
+
+ 
     /**
      * Display the specified resource.
      *
@@ -111,5 +108,18 @@ class FavoriteController extends Controller
         
         return redirect()->route('admin.show', ['admin' => $admin->id]);
   }
+  
+//   public function mydata()
+//   {
+//     // Userモデルに定義したリレーションを使用してデータを取得する．
+//     $admins = User::query()
+//       ->find(Auth::user()->id)
+//       ->favorites()
+//       ->orderBy('id','desc')
+//       ->get();
+//     return response()->view('favorites.index', compact('admins','url'));
+//   }
+
+  
 }
 
