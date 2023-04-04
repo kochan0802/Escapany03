@@ -21,6 +21,11 @@ use App\Http\Controllers\FavoriteController;
 |
 */
 
+Route::middleware('auth')->group(function () {
+  Route::resource('task', TasksController::class);
+});
+
+
 Route::get('/', function () {
     return view('welcome');
 });

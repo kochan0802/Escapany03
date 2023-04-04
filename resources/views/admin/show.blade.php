@@ -43,6 +43,7 @@
                    　
                    @if($coach->image_path)
                   <img src="{{ asset($coach->image_path) }}" alt="profile image">
+                  
                   @endif
             </div>
             <div class="flex flex-col mb-4">

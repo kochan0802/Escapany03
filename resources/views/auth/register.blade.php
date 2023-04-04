@@ -54,9 +54,9 @@
     <select id="gender" name="gender"
             class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:bg-white focus:outline-none">
         <option value="">-- 選択してください --</option>
-        <option value="male" {{ old('gender') === 'male' ? 'selected' : '' }}>Male</option>
-        <option value="female" {{ old('gender') === 'female' ? 'selected' : '' }}>Female</option>
-        <option value="other" {{ old('gender') === 'other' ? 'selected' : '' }}>Other</option>
+        <option value="male" {{ old('gender') === 'male' ? 'selected' : '' }}>男性</option>
+        <option value="female" {{ old('gender') === 'female' ? 'selected' : '' }}>女性</option>
+       
     </select>
     </div>
     
@@ -66,7 +66,7 @@
 
     <select id="personalities" name="personalities" class="block mt-1 w-full">
        
-<option value="">-- 選択してください --</option>
+<option value="">--性格診断結果 --</option>
 <optgroup label="分析家">
 <option value="建築家" {{ old('personalities') === '建築家' ? 'selected' : '' }}>建築家</option>
 <option value="論理学者" {{ old('personalities') === '論理学者' ? 'selected' : '' }}>論理学者</option>

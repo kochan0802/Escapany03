@@ -33,15 +33,14 @@ class AdminRegisterController extends Controller
             'profile_image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
         ]);
 
-        if(request('profile_image')){
-        $original=request()->file("profile_image")->getClientOriginalName();
-        $name=date("Ymd_His")."_".$original;
-        request()->file("profile_image")->move("storage/profile_images",$name);
-        $imagePath = 'profile_images/' . $name;
-    }
+       if(request('profile_image')){
+    $original=request()->file("profile_image")->getClientOriginalName();
+    $name=date("Ymd_His")."_".$original;
+    request()->file("profile_image")->storeAs("public/profile_images", $name);
+    $imagePath = 'storage/profile_images/' . $name;
     
-         $profile_image->save();
-         dd($profile_image);
+    // プロフィール画像のパスをデータベースに保存するなどの処理を行う
+}
 
 
         $admin = Admin::create([
@@ -63,6 +62,6 @@ class AdminRegisterController extends Controller
 
         Auth::guard('admin')->login($admin);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect('/admin/dashboard');
     }
 }

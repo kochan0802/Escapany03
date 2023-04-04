@@ -37,7 +37,7 @@ class RegisteredUserController extends Controller
         'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
         'password' => ['required', 'confirmed', Rules\Password::defaults()],
         'personalities' => ['nullable', 'in:建築家,論理学者,指揮官,討論者,提唱者,仲介者,主人公,広報運動家,管理者,擁護者,幹部,領事館,巨匠,冒険者,起業家'],
-        'gender' => ['nullable', 'in:male,female,other'],
+        'gender' => ['nullable', 'in:male,female'],
         'birthday' => ['nullable', 'date_format:Y-m-d'],
         'profile_image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
     ]);
