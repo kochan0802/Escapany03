@@ -70,7 +70,7 @@ Route::group(['prefix' => 'admin'], function () {
             ->name('admin.dashboard');
      
      // ログアウト        
-    Route::get('logout', [AdminLoginController::class, 'logout'])
+    Route::get('logout', [AdminLoginController::class, 'destroy'])
     ->name('admin.logout');
         
     });

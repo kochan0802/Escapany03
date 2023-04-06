@@ -25,7 +25,7 @@
     <body class="antialiased">
     <header class="text-gray-600 body-font">
   <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-     <img src= "{{ asset('image/icon_es01.PNG')}}" alt="アイコン" style="width: 50px; height: auto;">
+     <img src= "{{ asset('image/icon_es01.png')}}" alt="アイコン" style="width: 50px; height: auto;">
     
 
       <span class="ml-3 text-xl">Escapany</span>
@@ -63,7 +63,7 @@
   <div class="container px-5 py-24 mx-auto">
     <div class="text-center mb-20">
     <div style="display: flex; justify-content: center;">
-     <img src="{{ asset('storage/images/icon_es03.png') }}" alt="アイコン" style="width: 600px; height: auto;">
+     <img src="{{ asset('image/icon_es03.png') }}" alt="アイコン" style="width: 600px; height: auto;">
     </div>
       <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">会社に依存しない働き方を一緒に考え伴走する
       <br>コーチングサロン</br></h1>
@@ -123,7 +123,7 @@
      <footer class="text-gray-600 body-font">
   <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
     <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-      <img src="{{ asset('storage/images/icon_es01.PNG') }}" alt="アイコン" style="width: 50px; height: auto;">
+      <img src="{{ asset('image/icon_es01.png')}}" alt="アイコン" style="width: 50px; height: auto;">
       <span class="ml-3 text-xl">Escapany</span>
     </a>
     <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2023 Escapany —
