@@ -25,7 +25,8 @@
     <body class="antialiased">
     <header class="text-gray-600 body-font">
   <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-     <img src="{{ asset('storage/images/icon_es01.PNG') }}" alt="アイコン" style="width: 50px; height: auto;">
+     <img src= "{{ asset('image/icon_es01.PNG')}}" alt="アイコン" style="width: 50px; height: auto;">
+    
 
       <span class="ml-3 text-xl">Escapany</span>
     </a>
