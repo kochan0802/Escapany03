@@ -22,6 +22,9 @@
         max-width: 500px;
     }
     
+    label.control-label {
+        color: gray;
+    }
     /* テーブル */
     table {
         border-collapse: collapse;
@@ -45,6 +48,10 @@
     }
     
     tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+     tr:nth-child(odd) {
         background-color: #f2f2f2;
     }
     

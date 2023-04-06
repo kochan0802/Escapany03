@@ -1,6 +1,4 @@
-<style>
 
-</style>
 
 <x-app-layout>
   <x-slot name="header">

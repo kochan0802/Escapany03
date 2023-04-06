@@ -30,7 +30,9 @@
             </div>
              <!-- 🔽 お気に入りコーチへのリンクを追加 -->
             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-              <x-nav-link :href="route('favorite.index')" :active="request()->routeIs('favorite.index')"></x-nav-link>
+              <x-nav-link :href="route('favorite.index')" :active="request()->routeIs('favorite.index')">
+                {{ __('お気に入りコーチ') }} 
+              </x-nav-link>
             </div>
 
             <!-- Settings Dropdown -->
