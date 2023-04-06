@@ -1,3 +1,6 @@
+<style>
+
+</style>
 
 <x-app-layout>
   <x-slot name="header">
@@ -7,8 +10,10 @@
   </x-slot>
 
   <div class="py-12">
-    <div class="max-w-7xl mx-auto sm:w-8/12 md:w-1/2 lg:w-5/12">
+    <!--<div class="max-w-7xl mx-auto sm:w-8/12 md:w-1/2 lg:w-5/12">-->
+    <div class="flex flex-wrap">
         @foreach ($admins as $admin)
+         <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 xl:w-1/3 p-6">
       <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-800">
           <div class="mb-6">
@@ -80,7 +85,9 @@
           </div>
         </div>
       </div>
+      </div>
       @endforeach
+    
     </div>
   </div>
 </x-app-layout>

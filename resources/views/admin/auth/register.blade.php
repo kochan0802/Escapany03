@@ -1,25 +1,30 @@
+
+
 <x-guest-layout>
-    <h1 class="text-white">コーチ登録</h1>
-    
+   <div style="text-align: center;">
+        <div style="display: inline-block;">
+            <x-input-label :value="__('コーチ新規登録')" />
+        </div>
+    </div>
     <form method="POST" action="{{ route('admin.register') }}" enctype="multipart/form-data">
         @csrf
 
         <!-- Name -->
-        <div>
+        <div class="mt-4 w-full">
             <x-input-label for="name" :value="__('お名前')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
-        <div class="mt-4">
+        <div class="mt-4 w-full">
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="email" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
-        <div class="mt-4">
+        <div class="mt-4 w-full">
             <x-input-label for="password" :value="__('パスワード')" />
 
             <x-text-input id="password" class="block mt-1 w-full"
@@ -31,7 +36,7 @@
         </div>
 
         <!-- Confirm Password -->
-        <div class="mt-4">
+       <div class="mt-4 w-full">
             <x-input-label for="password_confirmation" :value="__('パスワードの確認')" />
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full"
@@ -40,26 +45,30 @@
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
+        
     <!-- License -->
-    　<div class="mt-4">
-        <x-input-label for="license" :value="__('カウンセリング資格')" />
-        <x-textarea-input id="license" class="block mt-1 w-full"
-                                name="license"
-                                required autocomplete="license">{{ old('license') }}</x-textarea-input>
-        <x-input-error :messages="$errors->get('license')" class="mt-2" />
-            </div>
+    <div class="mt-4 w-full">
+    <x-input-label for="license" :value="__('カウンセリング資格')" />
+    <x-text-input id="license" class="block mt-1 w-full" type="text"
+                  name="license"
+                  :value="old('license')"
+                  required autofocus autocomplete="license" />
+    <x-input-error :messages="$errors->get('license')" class="mt-2" />
+    </div>
+
             
         <!-- Career -->
-        <div class="mt-4">
-            <x-input-label for="career" :value="__('経歴')" />
-        
-            <x-textarea-input id="career" class="block mt-1 w-full"
-                            name="career"
-                            required autocomplete="career">{{ old('career') }}</x-textarea-input>
-        
+        <div class="mt-4 w-full">
+        <x-input-label for="career" :value="__('経歴')" />
+            
+        <x-text-input id="career" class="block mt-1 w-full" type="text"
+            name="career"
+             :value="old('career')"
+            required  autofocus autocomplete="career" />
         <x-input-error :messages="$errors->get('career')" class="mt-2" />
-        </div>
-    <div class="mt-4">
+    </div>
+
+    <div class="mt-4 w-full">
     <x-input-label for="category_id" :value="__('得意ジャンル')" />
     <select id="category_id" name="category_id" class="block mt-1 w-full">
         <option value="">-- 選択してください --</option>   
@@ -78,7 +87,7 @@
 </div>
         <!--  16 personalities -->
                
-         <div class="mt-4">
+        <div class="mt-4 w-full">
             <x-input-label for="personalities" :value="__('16personalities 診断結果')" />
         
             <select id="personalities" name="personalities" class="block mt-1 w-full">
@@ -109,18 +118,21 @@
                 </select>
                 <x-input-error :messages="$errors->get('personalities')" class="mt-2" />
                 </div>
-            
-     <!--URL -->
-  <div class="mt-4">
-                <x-input-label for="url" :value="__('アイテマスURL')" />
-            
-                <x-textarea-input id="url" class="block mt-1 w-full"
-                                name="url"
-                                required autocomplete="url">{{ old('url') }}</x-textarea-input>
-            
-                <x-input-error :messages="$errors->get('url')" class="mt-2" />
-            </div>
- 
+                
+            <a href="https://www.16personalities.com/ja/%E6%80%A7%E6%A0%BC%E8%A8%BA%E6%96%AD%E3%83%86%E3%82%B9%E3%83%88" target="_blank">
+                <x-input-label :value="__('ー性格診断テストはこちらからー')" for="personality-test" />
+            </a>
+      
+                
+                <!--URL -->
+    <div class="mt-4 w-full">
+    <x-input-label for="url" :value="__('アイテマスURL')" />
+    <x-text-input id="url" class="block mt-1 w-full" type="text"
+                  name="url"
+                  :value="old('url')"
+                  required autofocus autocomplete="url" />
+    <x-input-error :messages="$errors->get('url')" class="mt-2" />
+    </div>
             
                  <!--プロフィール画像アップロード -->
                         <div class="mt-4">

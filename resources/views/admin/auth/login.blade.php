@@ -2,7 +2,11 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <h1 class="text-white">コーチログイン</h1>
+     <div style="text-align: center;">
+        <div style="display: inline-block;">
+            <x-input-label :value="__('コーチログイン')" />
+        </div>
+    </div>
     <form method="POST" action="{{ route('admin.login') }}">
         @csrf
 

@@ -1,20 +1,78 @@
 <style>
-
-  
+    body {
+        background-color: pink;
+    }
+    
+    
+    /* フォーム要素 */
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        padding: 10px 10px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+    }
+    
+    .form-group select {
+         padding: 10px 10px;
+        width: 100%;
+        max-width: 500px;
+    }
+    
+    /* テーブル */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 1000px;
+        margin: 100px auto;
+        margin-top: 20px;
+    }
+    
+    th,
+    td {
+        text-align: center;
+        padding: 20px;
+        border: 1px solid #ddd;
+        writing-mode: horizontal-tb;
+    }
+    
+    th {
+        background-color: #B19CD9;
+        font-weight: bold;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    .btn.btn-default {
+          background-color: #B19CD9; /* 薄い紫色の背景色 */
+          border: none; /* 枠線を非表示 */
+          color: white; /* ボタンの文字色 */
+          padding: 16px 32px; /* ボタン内の余白 */
+          text-align: center; /* ボタン内のテキストを中央揃え */
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          cursor: pointer;
+          border-radius: 50px; /* 角丸を50pxに指定 */
+    }
+    
 </style>
 
 
 <x-app-layout>
-    <x-masteradmin>
+   
+      <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+           コーチリスト
+        </h2>
+    </x-slot>
     
-    <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-      {{ __('コーチリスト') }}
-    </h2>
-  </x-slot>
-
-    <!--<x-slot name="title">コーチリスト</x-slot>-->
-  
+   <x-masteradmin>
     <x-slot name="content">
 
         <!--=================================================
@@ -26,7 +84,7 @@
             @csrf
 
             <div class="form-group">
-                <label for="number" class="control-label col-xs-2">興味のあるジャンル</label>
+                <label for="number" class="control-label col-xs-2　text-center">興味のあるジャンル</label>
                 <div class="col-xs-10">
                     <select name="category_name" class="form-control select select-primary mbl">
                         <option value="やりたいこと探し" {{ $category_name == 'やりたいこと探し' ? 'selected' : '' }}>やりたいこと探し</option> 
@@ -43,7 +101,7 @@
                 </div>
 
             <div class="form-group">
-                <label for="number" class="control-label col-xs-2">自分の性格診断結果</label>
+                <label for="number" class="control-label col-xs-2　text-center">自分の性格診断結果</label>
                 <div class="col-xs-10">
                     <select name="personality" class="form-control select select-primary mbl">
                         <optgroup label="分析家">
@@ -59,9 +117,9 @@
                             <option value="広報運動家" {{ $personality == '広報運動家' ? 'selected' : '' }}>広報運動家</option>
                         </optgroup>
                         <optgroup label="番人">
-                            <option value="管理者" {{ $personality == '提唱者' ? 'selected' : '' }}>提唱者</option>
-                            <option value="擁護者" {{ $personality == '仲介者' ? 'selected' : '' }}>仲介者</option>
-                            <option value="幹部" {{ $personality == '主人公' ? 'selected' : '' }}>主人公</option>
+                            <option value="管理者" {{ $personality == '管理者' ? 'selected' : '' }}>管理者</option>
+                            <option value="擁護者" {{ $personality == '擁護者' ? 'selected' : '' }}>擁護者</option>
+                            <option value="幹部" {{ $personality == '幹部' ? 'selected' : '' }}>幹部</option>
                             <option value="領事館" {{ $personality == '領事館' ? 'selected' : '' }}>領事館</option>
                         </optgroup>
                          <optgroup label="探検家">
@@ -73,8 +131,7 @@
                         </select>
             <div class="form-group">
               <div class="col-xs-offset-2 col-xs-10 text-center">
-                <button type="submit" class="btn btn-default">検索</button>
-              </div>
+                <button type="submit" class="btn btn-default ">検索</button>
             </div>
             </form>
        

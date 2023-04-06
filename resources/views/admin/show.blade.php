@@ -13,6 +13,9 @@
           <div class="mb-6">
             <div class="flex flex-col mb-4">
                     <!--{{$coach -> id}}-->
+                    @if($coach->image_path)
+                  <img src="{{ asset($coach->image_path) }}" alt="profile_image">
+                  @endif
                      <!-- favorite 状態で条件分岐 -->
                     @if($coach->users()->where('user_id', Auth::id())->exists())
                     <!-- unfavorite ボタン -->
@@ -41,10 +44,6 @@
                     </form>
                     @endif
                    　
-                   @if($coach->image_path)
-                  <img src="{{ asset($coach->image_path) }}" alt="profile image">
-                  
-                  @endif
             </div>
             <div class="flex flex-col mb-4">
               <p class="mb-2 uppercase font-bold text-lg text-gray-800 dark:text-gray-200">名前</p>

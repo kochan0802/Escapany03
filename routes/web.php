@@ -64,9 +64,15 @@ Route::group(['prefix' => 'admin'], function () {
 
     // 以下の中は認証必須のエンドポイントとなる
     Route::middleware(['auth:admin'])->group(function () {
-        // ダッシュボード
+    
+    // ダッシュボード
         Route::get('dashboard', fn() => view('admin.dashboard'))
             ->name('admin.dashboard');
+     
+     // ログアウト        
+    Route::get('logout', [AdminLoginController::class, 'logout'])
+    ->name('admin.logout');
+        
     });
 });
 

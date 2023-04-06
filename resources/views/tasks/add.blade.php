@@ -1,26 +1,46 @@
 <style>
-    h1 {
-        text-align: center;
-        padding: 30px;
-    }
+   
     .form {
-        width: 80%;
+        max-width: 600px;
         margin: 0 auto;
         text-align: center;
+        background-color: #B19CD9;
+        padding: 30px;
+        border-radius: 10px;
     }
     .form-group {
-        padding-bottom: 50px;
+        margin-bottom: 30px;
+        text-align: left;
+    }
+    label {
+        text-align: center;
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: white;
     }
     span {
-        color: red;
+        color: orange;
     }
-    input {
-        width: 60%;
-        height: 30px;
-    }
+    input[type="text"],
     textarea {
-        width: 60%;
-        
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    input[type="submit"] {
+        background-color: white;
+        color: #B19CD9;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #f5f5f5;
     }
         
     .error {
@@ -28,32 +48,49 @@
     }
     
     .error__message {
-        color: red;
+        color: orange;
+        font-weight: bold;
+    }
+    
+    .link {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .link__back a {
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    
+    .link__back a:hover {
+        text-decoration: underline;
     }
     
 </style>
-<h1>タスク追加</h1>
 <div class="link">
-        <div class="link__back">
+    <div class="link__back">
         <a href="{{ route('tasks.index') }}">戻る</a>
-        </div>
-
-<div class="error">
-    @foreach ($errors->all() as $error)
-      <p class="error__message">{{$error}}</p>
-    @endforeach
+    </div>
 </div>
 
-<form action="{{ route('tasks.store') }}" method="POST" class="form">    
-@csrf
-    <div class="form-group">
-        <label for="name">タスク<span>(必須)</span></label><br>
-         <input type="text" name="name" maxlength="30" placeholder="タスクは30文字で書きましょう。" value="{{ old('name') }}">   
+<div class="form">
+    <div class="error">
+        @foreach ($errors->all() as $error)
+            <p class="error__message">{{$error}}</p>
+        @endforeach
     </div>
-    <div class="form-group">
-        <label for="content">タスク内容<span>(必須)</span></label><br>
-    <textarea rows="5" name="content" placeholder="タスク内容を具体的に書きましょう">{{ old('content') }}</textarea>    
-    </div>
-    <button type="submit">追加する</button>
-    
-</form>
+
+    <form action="{{ route('tasks.store') }}" method="POST">    
+        @csrf
+        <div class="form-group">
+            <label for="name">タスク<span>(必須)</span></label>
+            <input type="text" name="name" maxlength="30" placeholder="タスクは30文字で書きましょう。" value="{{ old('name') }}">   
+        </div>
+        <div class="form-group">
+            <label for="content">タスク内容<span>(必須)</span></label>
+            <textarea rows="5" name="content" placeholder="タスク内容を具体的に書きましょう">{{ old('content') }}</textarea>    
+        </div>
+        <button type="submit">追加する</button>
+    </form>
+</div>

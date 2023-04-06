@@ -1,7 +1,14 @@
+
 <x-guest-layout>
+
     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
-
+    <div style="text-align: center;">
+        <div style="display: inline-block;">
+            <x-input-label :value="__('ユーザー新規登録')" />
+        </div>
+    </div>
+            
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('名前')" />
@@ -91,6 +98,12 @@
 </optgroup>
         </select>
         <x-input-error :messages="$errors->get('personalities')" class="mt-2" />
+        <br>
+            <a href="https://www.16personalities.com/ja/%E6%80%A7%E6%A0%BC%E8%A8%BA%E6%96%AD%E3%83%86%E3%82%B9%E3%83%88" target="_blank">
+                <x-input-label :value="__('ー性格診断テストはこちらからー')" for="personality-test" />
+            </a>
+         </br>
+    
         </div>
         
         
@@ -102,12 +115,12 @@
 </div>
    
         <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
+            <a class="underline text-sm text-gray-600 text-gray-400 hover:text-gray-900 hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 focus:ring-offset-gray-800" href="{{ route('login') }}">
+                {{ __('すでに登録していますか?') }}
             </a>
 
             <x-primary-button class="ml-4">
-                {{ __('Register') }}
+                {{ __('登録する') }}
             </x-primary-button>
         </div>
     </form>

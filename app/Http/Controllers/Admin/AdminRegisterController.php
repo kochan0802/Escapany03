@@ -33,12 +33,12 @@ class AdminRegisterController extends Controller
             'profile_image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
         ]);
 
-       if(request('profile_image')){
-    $original=request()->file("profile_image")->getClientOriginalName();
-    $name=date("Ymd_His")."_".$original;
-    request()->file("profile_image")->storeAs("public/profile_images", $name);
-    $imagePath = 'storage/profile_images/' . $name;
-    
+         if(request('profile_image')){
+        $original=request()->file("profile_image")->getClientOriginalName();
+        $name=date("Ymd_His")."_".$original;
+        request()->file("profile_image")->move("public/storage/profile_images/",$name);
+        $imagePath = 'public/storage/profile_images/' . $name;
+        
     // プロフィール画像のパスをデータベースに保存するなどの処理を行う
 }
 
@@ -55,7 +55,7 @@ class AdminRegisterController extends Controller
             'career' => $request->input('career'),
             'personalities' => $request->input('personalities') ?? '',
             'url' =>$request->input('url'),
-            'profile_image' => $imagePath,
+            'profile_image' => isset($imagePath) ? $imagePath : '',
         ]);
 
         event(new Registered($admin));

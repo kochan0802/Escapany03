@@ -1,34 +1,73 @@
 <style>
-    h1 {
+   
+    .form {
+        max-width: 600px;
+        margin: 0 auto;
         text-align: center;
+        background-color: #B19CD9;
         padding: 30px;
+        border-radius: 10px;
     }
+    .form-group {
+        margin-bottom: 30px;
+        text-align: left;
+    }
+    label {
+        text-align: center;
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: white;
+    }
+    span {
+        color: orange;
+    }
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    input[type="submit"] {
+        background-color: white;
+        color: #B19CD9;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #f5f5f5;
+    }
+        
     .error {
         text-align: center;
     }
+    
     .error__message {
-        color: red;
+        color: orange;
+        font-weight: bold;
     }
-    .form {
-        width: 80%;
-        margin: 0 auto;
+    
+    .link {
         text-align: center;
+        margin-bottom: 20px;
     }
-    .form-group {
-        padding-bottom: 50px;
+    
+    .link__back a {
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
     }
-    span {
-        color: red;
+    
+    .link__back a:hover {
+        text-decoration: underline;
     }
-    input {
-        width: 60%;
-        height: 30px;
-    }
-    textarea {
-        width: 60%;
-    }
+    
 </style>
-<h1>タスク編集</h1>
 <div class="link">
         <div class="link__back">
              <a href="{{ route('tasks.index') }}">戻る</a>

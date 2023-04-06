@@ -1,38 +1,57 @@
 <style>
     h1 {
         text-align: center;
-        padding: 30px;
+        font-size: 30px;
+        padding: 10px;
+        background-color: #eaf3ff; 
+        border-radius: 10px;
+        width: 50% 50%;
     }
     .container {
         width: 60%;
         margin: 0 auto;
+        background-color: #B19CD9; 
+        padding: 20px;
+        border-radius: 10px;
     }
     table {
         width: 100%;
         border-collapse: collapse;
         border-spacing: 0;
+        background-color: #FCE0E6;
+        border-radius: 10px;
     }
   
     table th,table td {
+        color: #777777;
         padding: 10px 0;
         text-align: center;
     }
   
     table tr:nth-child(odd){
-        background-color: #eee
+        background-color: 
     }
     .link {
-        display: flex;
+        display: flex;#e6e6fa; 
         justify-content: space-between;
+        margin-top: 20px;
+    }
+    
+    .link__delete button {
+        background-color: orange;
+        color: white;
+        border-radius: 10px;
+        padding: 5px 15px;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .link__delete button:hover {
+        opacity: 0.8;
     }
 </style>
-<h1>タスク詳細</h1>
 <div class="container">
     <table>
-        <tr>
-            <th>ID</th>
-            <td>{{ $task->id }}</td>
-        </tr>
         <tr>
             <th>タスク</th>
             <td>{{ $task->name }}</td>
@@ -52,15 +71,15 @@
     </table>
     <div class="link">
         <div class="link__back">
-             <a href="{{ route('tasks.index') }}">戻る</a>
+            <a href="{{ route('tasks.index') }}">戻る</a>
         </div>
         <div class="link__edit">
             <a href="{{ route('tasks.edit', ['id' => $task->id]) }}">編集する</a>
         </div>
-       <div class="link__delete">
-            <form action="{{ route('tasks.delete', ['id' => $task->id]) }}" method="POST"> 
+        <div class="link__delete">
+            <form action="{{ route('tasks.delete', ['id' => $task->id]) }}" method="POST">
                 @csrf
-                    <button type="submit">削除</button>
+                <button type="submit">削除</button>
             </form>
         </div>
     </div>
