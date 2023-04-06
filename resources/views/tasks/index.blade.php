@@ -98,6 +98,7 @@ h1 {
     </x-slot>
 <!--<h1><div class="h1_title">Todo リスト</div></h1>-->
 <div class="container">
+    
     <br>
     <div class="task__add">
       <button type="button" onclick="location.href='{{route('tasks.add')}}'">タスクを追加する</button>

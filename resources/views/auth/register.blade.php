@@ -98,13 +98,20 @@
 </optgroup>
         </select>
         <x-input-error :messages="$errors->get('personalities')" class="mt-2" />
+        </div>
         <br>
             <a href="https://www.16personalities.com/ja/%E6%80%A7%E6%A0%BC%E8%A8%BA%E6%96%AD%E3%83%86%E3%82%B9%E3%83%88" target="_blank">
-                <x-input-label :value="__('ー性格診断テストはこちらからー')" for="personality-test" />
+                <x-input-label :value="__('ー性格診断テストがまだの方はこちらー')" for="personality-test" />
+            </a>
+         </br>
+         
+         <br>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSflBJpIgXvA15W5mXYbbzkcF5nTdOhGDwxh_hXs73Hq4NFH8w/viewform" target="_blank">
+                <x-input-label :value="__('ー初回ヒアリングシートにご記入はこちらー')" for="personality-test" />
             </a>
          </br>
     
-        </div>
+      
         
         
         <!-- プロフィール画像アップロード -->
