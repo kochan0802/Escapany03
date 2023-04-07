@@ -29,7 +29,7 @@ class AdminRegisterController extends Controller
             'license' => ['string', 'max:255'],
             'career' => ['string', 'max:65535'],
             'url' => ['string', 'max:255'],
-            'personalities' => ['nullable', 'in:建築家,論理学者,指揮官,討論者,提唱者,仲介者,主人公,広報運動家,管理者,擁護者,幹部,領事館,巨匠,冒険者,起業家'],
+            'personalities' => ['nullable', 'in:建築家,論理学者,指揮官,討論者,提唱者,仲介者,主人公,広報運動家,管理者,擁護者,幹部,領事館,巨匠,冒険者,起業家,エンターテイナー'],
             'profile_image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
         ]);
 
