@@ -9,6 +9,8 @@ use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TasksController;   
 use App\Http\Controllers\FavoriteController;
+use Laravel\Fortify\Http\Controllers\Auth\AuthenticatedSessionController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -69,9 +71,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('dashboard', fn() => view('admin.dashboard'))
             ->name('admin.dashboard');
      
-     // ログアウト        
-    Route::get('logout', [AdminLoginController::class, 'destroy'])
-    ->name('admin.logout');
+    //  // ログアウト        
+    // Route::post('/admin/logout', [AuthenticatedSessionController::class, 'destroy'])
+    // ->middleware('auth')
+    // ->name('admin.logout');
         
     });
 });

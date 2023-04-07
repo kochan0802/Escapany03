@@ -114,6 +114,7 @@
             <option value="巨匠" {{ old('personalities') === '巨匠' ? 'selected' : '' }}>巨匠</option>
             <option value="冒険者" {{ old('personalities') === '冒険者' ? 'selected' : '' }}>冒険者</option>
             <option value="起業家" {{ old('personalities') === '起業家' ? 'selected' : '' }}>起業家</option>
+            <option value="エンターテイナー" {{ old('personalities') === 'エンターテイナー' ? 'selected' : '' }}>エンターテイナー</option>
         </optgroup>
                 </select>
                 <x-input-error :messages="$errors->get('personalities')" class="mt-2" />
