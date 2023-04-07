@@ -7,7 +7,7 @@
         
         <div style="text-align: center;">
         <div style="display: inline-block;">
-            <x-input-label :value="__('ユーザー新規登録')" />
+            <x-input-label :value="__('ユーザーログイン')" />
         </div>
     </div>
 
