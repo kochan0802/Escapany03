@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/escapany01', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
