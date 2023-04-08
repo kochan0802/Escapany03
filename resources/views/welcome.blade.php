@@ -68,11 +68,13 @@
       <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">会社に依存しない働き方を一緒に考え伴走する
       <br>コーチングサロン</br></h1>
       <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">
-      <br>漠然と将来に不安を抱きながらまだ行動に移せていないや、</br>
+      <br>漠然と将来に不安を抱きながらまだ行動に移せていない人や、</br>
         <br>やる気はあるのに目的地がわからないキャリア迷子さんたち。</br>
 
          <br>自分らしい道をコーチや仲間と見つけ、
     敷かれたレールから一緒に脱走しちゃお？</br></p>
+    
+ 
       <div class="flex mt-6 justify-center">
         <div class="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
       </div>
@@ -119,6 +121,8 @@
    <button onclick="window.location.href='https://www.16personalities.com/ja/%E6%80%A7%E6%A0%BC%E8%A8%BA%E6%96%AD%E3%83%86%E3%82%B9%E3%83%88'" class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">性格診断テストを受けてみる</button>
   </div>
 </section>
+
+ 
         
      <footer class="text-gray-600 body-font">
   <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
