@@ -36,8 +36,8 @@ class AdminRegisterController extends Controller
          if(request('profile_image')){
         $original=request()->file("profile_image")->getClientOriginalName();
         $name=date("Ymd_His")."_".$original;
-        request()->file("profile_image")->move("public/storage/profile_images/",$name);
-        $imagePath = 'public/storage/profile_images/' . $name;
+        request()->file("profile_image")->move("storage/profile_images/",$name);
+        $imagePath = 'storage/profile_images/' . $name;
         
     // プロフィール画像のパスをデータベースに保存するなどの処理を行う
 }

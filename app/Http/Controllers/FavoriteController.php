@@ -64,7 +64,11 @@ class FavoriteController extends Controller
      */
     public function show($id)
     {
-        //
+        $coach = Admin::find($id);
+        $url = $coach->url;
+        $profile_image = $coach->profile_image;
+
+        return view('favorites.index', compact('coach', 'url' ,'profile_image'));
     }
 
     /**
@@ -109,16 +113,17 @@ class FavoriteController extends Controller
         return redirect()->route('admin.show', ['admin' => $admin->id]);
   }
   
-//   public function mydata()
-//   {
-//     // Userモデルに定義したリレーションを使用してデータを取得する．
-//     $admins = User::query()
-//       ->find(Auth::user()->id)
-//       ->favorites()
-//       ->orderBy('id','desc')
-//       ->get();
-//     return response()->view('favorites.index', compact('admins','url'));
-//   }
+   public function mydata()
+  {
+    // Userモデルに定義したリレーションを使用してデータを取得する．
+    $admins = User::query()
+      ->find(Auth::user()->id)
+      ->favorites()
+      ->orderBy('id','desc')
+      ->get();
+ 
+    return response()->view('favorites.index', compact('admins','url'));
+  }
 
   
 }

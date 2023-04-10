@@ -70,8 +70,12 @@ Route::group(['prefix' => 'admin'], function () {
     // ダッシュボード
         Route::get('dashboard', fn() => view('admin.dashboard'))
             ->name('admin.dashboard');
+         
+    // ログアウト          
+    Route::post('adminlogout', [AdminLoginController::class, 'adminlogout'])->name('adminlogout'); 
+
      
-    //  // ログアウト        
+    //        
     // Route::post('/admin/logout', [AuthenticatedSessionController::class, 'destroy'])
     // ->middleware('auth')
     // ->name('admin.logout');
