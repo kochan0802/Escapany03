@@ -7,8 +7,8 @@ use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
-// use App\Http\Controllers\Admin\Request;
+use App\Http\Controllers\Admin\Request;
+
 
 
 class AdminLoginController extends Controller
