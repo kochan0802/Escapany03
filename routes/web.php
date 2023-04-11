@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TasksController;   
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\ReservationController;
 use Laravel\Fortify\Http\Controllers\Auth\AuthenticatedSessionController;
 
 
@@ -35,6 +36,8 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+//  Route::resource('coachreservation', UserReservationController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -74,7 +77,8 @@ Route::group(['prefix' => 'admin'], function () {
     // ログアウト          
     Route::post('adminlogout', [AdminLoginController::class, 'adminlogout'])->name('adminlogout'); 
 
-     
+    Route::resource('reservation', ReservationController::class);
+
     //        
     // Route::post('/admin/logout', [AuthenticatedSessionController::class, 'destroy'])
     // ->middleware('auth')

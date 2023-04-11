@@ -43,5 +43,10 @@ class Admin extends Authenticatable
     {
         return $this->profile_image ? asset($this->profile_image) : null;
     }
+    
+  public function userreservations()
+  {
+    return $this->hasMany(Reservation::class);
+  }
 
 }

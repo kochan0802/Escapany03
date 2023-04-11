@@ -12,13 +12,15 @@
                     {{ __("ログインしました") }}
                     <br>
                      <br>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSflBJpIgXvA15W5mXYbbzkcF5nTdOhGDwxh_hXs73Hq4NFH8w/viewform" target="_blank">
-                <x-input-label :value="__('ー初回ヒアリングシートにご記入がまだの方はこちらー')" for="personality-test" />
-            </a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSflBJpIgXvA15W5mXYbbzkcF5nTdOhGDwxh_hXs73Hq4NFH8w/viewform" target="_blank">
+                    <x-input-label :value="__('ー初回ヒアリングシートにご記入がまだの方はこちらー')" for="personality-test" />
+                </a>
                  </br>
                     </br>
+                 
                 </div>
             </div>
+            
         </div>
     </div>
 </x-app-layout>

@@ -71,4 +71,6 @@ class TasksController extends Controller
           ->get();
         return response()->view('tasks.index', compact('tasks'));
       }
+      
+      
 }
