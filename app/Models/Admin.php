@@ -38,5 +38,10 @@ class Admin extends Authenticatable
   {
     return $this->belongsToMany(User::class)->withTimestamps();
   }
+  
+  public function getImagePath(): ?string
+    {
+        return $this->profile_image ? asset($this->profile_image) : null;
+    }
 
 }

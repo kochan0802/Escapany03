@@ -43,10 +43,10 @@
                     @endif
                    　
             </div>
-            @if ($profile_image)
-                <img src="{{ asset($profile_image) }}" alt="profile_image" width="100" height="0" style="float:right;"/>
-            @endif
-                           
+                  @if ($profile_image)
+              <img src="{{ asset($profile_image) }}" alt="profile_image" width="100" height="0" style="float:right;"/>
+                   @endif
+                                     
             <div class="flex flex-col mb-4">
               <p class="mb-2 uppercase font-bold text-lg text-gray-800 dark:text-gray-200">名前</p>
               <p class="py-2 px-3 text-gray-800 dark:text-gray-200" id="name">

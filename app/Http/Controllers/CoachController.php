@@ -63,7 +63,11 @@ class CoachController extends Controller {
                   ->admins()
                   ->orderBy('name','desc')
                   ->get();
-                //   dd($admins);
+                 
+                    foreach($admins as $admin){
+                     $admin->image_path = $admin->getImagePath();
+            }
+                 
                 return response()->view('favorites.index', compact('admins'));
               }
 

@@ -62,15 +62,15 @@ class FavoriteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+     
     public function show($id)
-    {
-        $coach = Admin::find($id);
-        $url = $coach->url;
-        $profile_image = $coach->profile_image;
+{
+    // $coach = Admin::find($id);
+    // $url = $coach->url;
+    // $profile_image = $coach->profile_image;
 
-        return view('favorites.index', compact('coach', 'url' ,'profile_image'));
-    }
-
+    // return view('favorites.index', compact('coach', 'url', 'profile_image'));
+}
     /**
      * Show the form for editing the specified resource.
      *
@@ -122,7 +122,7 @@ class FavoriteController extends Controller
       ->orderBy('id','desc')
       ->get();
  
-    return response()->view('favorites.index', compact('admins','url'));
+    return response()->view('favorites.index', compact('admins'));
   }
 
   

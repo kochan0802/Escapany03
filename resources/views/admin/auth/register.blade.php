@@ -123,18 +123,20 @@
             <a href="https://www.16personalities.com/ja/%E6%80%A7%E6%A0%BC%E8%A8%BA%E6%96%AD%E3%83%86%E3%82%B9%E3%83%88" target="_blank">
                 <x-input-label :value="__('ー性格診断テストはこちらからー')" for="personality-test" />
             </a>
-      
-                
-                <!--URL -->
+           <!--URL -->
     <div class="mt-4 w-full">
-    <x-input-label for="url" :value="__('アイテマスURL')" />
+    <x-input-label for="url" :value="__('')" />
+    <a href="https://aitemasu.me/">作成したアイテマスURLを記入</a>
     <x-text-input id="url" class="block mt-1 w-full" type="text"
                   name="url"
                   :value="old('url')"
                   required autofocus autocomplete="url" />
     <x-input-error :messages="$errors->get('url')" class="mt-2" />
     </div>
-            
+             <a href="https://docs.google.com/document/d/1quVNhpH1UmWbipTuR7TPM3oev4IrOeU_QcQZMYnj1bc/edit?usp=sharing" target="_blank">
+                <x-input-label :value="__('ーアイテマスURL作成方法はこちらー')" for="personality-test" />
+            </a>
+        
                  <!--プロフィール画像アップロード -->
                         <div class="mt-4">
                     <x-input-label for="profile_image" :value="__('プロフィール画像登録')" />
