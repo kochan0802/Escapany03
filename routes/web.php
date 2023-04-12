@@ -29,6 +29,9 @@ Route::middleware('auth')->group(function () {
 });
 
 
+ Route::resource('reservation', ReservationController::class);
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -145,3 +148,7 @@ Route::get('/tasks/edit/{id}', [TasksController::class, 'edit'])->name('tasks.ed
 Route::post('/tasks/edit/{id}', [TasksController::class, 'update'])->name('tasks.update');
 
 Route::post('tasks/delete/{id}', [TasksController::class, 'delete'])->name('tasks.delete');
+
+
+
+

@@ -1,6 +1,6 @@
 
 <!-- resources/views/tweet/index.blade.php -->
-
+<x-app-layout>  
   <div class="py-12">
     <div class="max-w-7xl mx-auto sm:w-10/12 md:w-8/10 lg:w-8/12">
       <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
@@ -16,7 +16,7 @@
   <tr class="hover:bg-gray-lighter">
     <td class="py-4 px-6 border-b border-gray-light dark:border-gray-600">
       <div class="flex">
-        <h3>{{ $coaches->find($reservation->coach_id)->name}}</h3>
+        <h3>{{ $admins->find($reservation->admin_id)->name}}</h3>
         <h3>{{ $reservation->datetime}}</h3>
         <h3>{{ $reservation->task}}</h3>
       </div>
@@ -29,3 +29,4 @@
       </div>
     </div>
   </div>
+</x-app-layout>  

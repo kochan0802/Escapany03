@@ -6,10 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
-use App\Http\Controllers\Admin\Request;
-
-
 
 class AdminLoginController extends Controller
 {
@@ -34,7 +32,7 @@ class AdminLoginController extends Controller
             'login' => ['ログインに失敗しました'],
         ]);
     }
-    
+
     public function adminlogout(Request $request)
     {
         Auth::logout();
@@ -42,6 +40,4 @@ class AdminLoginController extends Controller
         $request->session()->regenerateToken();
         return redirect('/');
     }
-    
-    
 }

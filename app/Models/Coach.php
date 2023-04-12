@@ -25,4 +25,11 @@ protected $guarded = [
         return $this->belongsTo(Category::class);
     }
     
+        
+  public function coachreservations()
+  {
+    return $this->hasMany(Reservation::class);
+  }
+
+    
 }

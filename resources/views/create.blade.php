@@ -18,7 +18,7 @@
                       <x-text-input id="datetime" class="block mt-1 w-full" type="datetime-local" name="datetime"/>
                   </div>
                   <div class="form-group">
-                      <x-input-label for="task" :value="__('コーチング終了後、ユーザーの課題を入力してください')" />
+                      <x-input-label for="task" :value="__('ユーザーの進捗共有')" />
                       <x-text-input id="task" class="block mt-1 w-full" type="text" name="task"/>
                   </div>
                     <div class="flex items-center justify-end mt-4">

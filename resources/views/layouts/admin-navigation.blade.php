@@ -51,10 +51,10 @@
                         </x-dropdown-link>
 
                         <!-- Authentication -->
-                         <form action="{{ route('adminlogout') }}" method="POST">
+                        <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
-                            <x-dropdown-link :href="route('adminlogout')"
+                            <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('ログアウト') }}

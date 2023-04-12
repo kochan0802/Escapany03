@@ -60,7 +60,7 @@ form button:hover {
 }
 </style>
 
-<x-app-layout>
+<x-app-layout>  
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
@@ -69,12 +69,12 @@ form button:hover {
                 <p>{{ __("ログインしました。") }}</p>
                 <p>{{ __("アイテマスを経由し、ユーザーから予約がくるのをお待ちください。") }}</p>
                 <p>{{ Auth::user()->name }}</p>
-                <a href="{{ route('reservation.create') }}">
-                    予約作成
-                </a>
-                <a href="{{ route('reservation.index') }}">
-                    予約一覧
-                </a>
+                <!--<a href="{{ route('reservation.create') }}">-->
+                <!--    予約作成-->
+                <!--</a>-->
+                <!--<a href="{{ route('reservation.index') }}">-->
+                <!--    予約一覧-->
+                <!--</a>-->
                 <form action="{{ route('adminlogout') }}" method="POST">
                     @csrf
                     <button type="submit" class="inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-300 disabled:opacity-25 transition">
@@ -86,4 +86,5 @@ form button:hover {
     </div>
 </div>
 
-</x-app-layout>
+
+</x-app-layout>  

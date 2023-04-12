@@ -68,5 +68,12 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Admin::class);
     }
+    
+    public function coachreservations()
+{
+    return $this->hasMany(Reservation::class);
+}
+  
+  
   
 }

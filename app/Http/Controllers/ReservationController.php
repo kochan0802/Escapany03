@@ -17,17 +17,45 @@ class ReservationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-    $reservations = Admin::query()
-      ->find(Auth::user()->id)
-      ->userreservations()
-      ->orderBy('updated_at','desc')
-      ->get();
-    $users = User::query();
+    // public function index()
+    // {
+    // $reservations = Admin::query()
+    //   ->find(Auth::user()->id)
+    //   ->userreservations()
+    //   ->orderBy('updated_at','desc')
+    //   ->get();
+      
+    // $users = User::query();
 
-    return response()->view('userreservation', compact('reservations','users'));
+    // return response()->view('userreservation', compact('reservations','users'));
+    // }
+    
+      public function index()
+    {
+ 
+    if (Auth::guard('admin')->check()) {
+        $reservations = Admin::query()
+            ->find(Auth::user()->id)
+            ->userreservations()
+            ->orderBy('updated_at', 'desc')
+            ->get();
+        $users = User::query()->get();
+
+        return response()-> view('userreservation', compact('reservations', 'users'));
+        
+    } elseif (Auth::guard('web')->check()) {
+        $reservations = User::query()
+            ->find(Auth::id())
+            ->coachreservations()
+            ->orderBy('updated_at', 'desc')
+            ->get();
+        $admins = Admin::query()->get();
+        return response()-> view('coachreservation', compact('reservations', 'admins'));
     }
+}
+
+
+
 
     /**
      * Show the form for creating a new resource.
