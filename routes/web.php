@@ -13,6 +13,9 @@ use App\Http\Controllers\ReservationController;
 use Laravel\Fortify\Http\Controllers\Auth\AuthenticatedSessionController;
 
 
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,13 +26,12 @@ use Laravel\Fortify\Http\Controllers\Auth\AuthenticatedSessionController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/reservation/administrator_page',[ReservationController::class,'administrator_page'])->name('reservation.administrator_page');
+// Route::resource('reservation', ReservationController::class);
 
 Route::middleware('auth')->group(function () {
   Route::resource('task', TasksController::class);
 });
-
-
- Route::resource('reservation', ReservationController::class);
 
 
 Route::get('/', function () {
@@ -61,6 +63,7 @@ Route::group(['prefix' => 'admin'], function () {
     // 登録
     Route::get('register', [AdminRegisterController::class, 'create'])
         ->name('admin.register');
+        
 
     Route::post('register', [AdminRegisterController::class, 'store']);
     
@@ -72,18 +75,15 @@ Route::group(['prefix' => 'admin'], function () {
 
     // 以下の中は認証必須のエンドポイントとなる
     Route::middleware(['auth:admin'])->group(function () {
-    
+     Route::resource('reservation', ReservationController::class);     
     // ダッシュボード
         Route::get('dashboard', fn() => view('admin.dashboard'))
             ->name('admin.dashboard');
         // Route::get('/admin/dashboard', [AdminController::class, 'dashboard']);
-         
+    
     // ログアウト          
     Route::post('adminlogout', [AdminLoginController::class, 'adminlogout'])->name('adminlogout'); 
-
-    Route::resource('reservation', ReservationController::class);
-
-    //        
+        
     // Route::post('/admin/logout', [AuthenticatedSessionController::class, 'destroy'])
     // ->middleware('auth')
     // ->name('admin.logout');

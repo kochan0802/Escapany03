@@ -25,12 +25,25 @@ class CoachController extends Controller {
     $coach->admins()->attach(Auth::id());
     return redirect()->route('admin.show', ['id' => $id]);
 }
-  
+
   
     public function index()
     {
-        $coaches = Coach::all();
-        return view('admin.list', compact('coaches'));
+        $personalities = auth()->user()->personalities;
+        $coaches = Coach::when($personalities, function ($query, $personalities) {
+        return $query->where('personalities', $personalities);
+    })->get();
+    
+    // ビューに渡すデータを準備
+    $data = [
+        'coaches' => $coaches,
+    ];
+    
+    // list.blade.phpを表示
+    return view('list', $data);
+        
+        // $coaches = Coach::all();
+        // return view('admin.list', compact('coaches'));
     }
 
     public function select(Request $request)

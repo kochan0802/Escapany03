@@ -143,4 +143,14 @@ class ReservationController extends Controller
     {
         //
     }
+
+
+    
+    public function administrator_page(){
+        $reservations = Reservation::getAllReservationOrderByUpdated_at();
+        $users = User::query()->get();
+        $admins = Admin::query()->get();
+        return response()->view('administrator_page',compact('reservations','users','admins'));
+    }
+
 }

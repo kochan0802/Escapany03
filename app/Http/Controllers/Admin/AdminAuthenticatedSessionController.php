@@ -37,7 +37,7 @@ class AdminAuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {    
-        Auth::guard('web')->logout();
+        Auth::guard('admin')->logout(); // admin guard を使用してログアウトする
       
         $request->session()->invalidate();
 

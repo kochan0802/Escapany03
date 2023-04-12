@@ -18,7 +18,7 @@
                       <x-text-input id="datetime" class="block mt-1 w-full" type="datetime-local" name="datetime"/>
                   </div>
                   <div class="form-group">
-                      <x-input-label for="task" :value="__('ユーザーの進捗共有')" />
+                      <x-input-label for="task" :value="__('ユーザー用メモ')" />
                       <x-text-input id="task" class="block mt-1 w-full" type="text" name="task"/>
                   </div>
                     <div class="flex items-center justify-end mt-4">
@@ -27,6 +27,7 @@
                       </x-primary-button>
                     </div>
                 </form>
+                <button onclick="location.href='{{ url()->previous() }}'" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">戻る</button>
             </div>
           </div>
         </div> 

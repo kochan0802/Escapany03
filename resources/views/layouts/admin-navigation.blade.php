@@ -46,20 +46,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('プロフィール') }}
-                        </x-dropdown-link>
-
-                        <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('ログアウト') }}
-                            </x-dropdown-link>
-                        </form>
+                    
                     </x-slot>
                 </x-dropdown>
             </div>
@@ -80,20 +67,20 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
-                {{ __('マイページ') }}
+                {{ __('コーチマイページ') }}
             </x-responsive-nav-link>
         </div>
         
         <!-- 🔽 予約管理ページへのリンクを追加 -->
     <div class="pt-2 pb-3 space-y-1">
       <x-responsive-nav-link :href="route('reservation.index')" :active="request()->routeIs('reservation.index')">
-        {{ __('予約管理リスト') }}
+        {{ __('ユーザー予約管理リスト') }}
       </x-responsive-nav-link>
     </div>
     <!-- 🔽 予約編集へのリンクを追加 -->
     <div class="pt-2 pb-3 space-y-1">
       <x-responsive-nav-link :href="route('reservation.create')" :active="request()->routeIs('reservation.create')">
-        {{ __('予約作成') }}
+        {{ __('コーチング日程入力') }}
       </x-responsive-nav-link>
     </div>
         <!-- Responsive Settings Options -->
@@ -103,21 +90,6 @@
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
             </div>
 
-            <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('プロフィール') }}
-                </x-responsive-nav-link>
-
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
-                    <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('ログアウト') }}
-                    </x-responsive-nav-link>
-                </form>
             </div>
         </div>
     </div>

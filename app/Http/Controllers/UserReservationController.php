@@ -65,7 +65,7 @@ class ReservationController extends Controller
 
         // 予約を保存
         $reservation->save();
-
+        dd($reservation);   
         // メッセージを表示してリダイレクト
         return view("admin.dashboard");
     }

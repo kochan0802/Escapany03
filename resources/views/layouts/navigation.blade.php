@@ -16,12 +16,7 @@
                         {{ __('マイページ') }}
                     </x-nav-link>
                 </div>
-                <!-- 🔽 予約管理へのリンクを追加 -->
-            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-              <x-nav-link :href="route('reservation.index')" :active="request()->routeIs('reservation.index')">
-                {{ __('予約管理リスト') }}
-              </x-nav-link>
-            </div>
+             
                 <!-- 🔽 Todoページへのリンクを追加 -->
             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
               <x-nav-link :href="route('tasks.index')" :active="request()->routeIs('tasks.index')">
@@ -60,13 +55,8 @@
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('プロフィール') }}
                         </x-dropdown-link>
-                         <!-- 🔽 予約管理ページへのリンクを追加 -->
-                        <div class="pt-2 pb-3 space-y-1">
-                          <x-responsive-nav-link :href="route('reservation.index')" :active="request()->routeIs('reservation.index')">
-                            {{ __('予約管理リスト') }}
-                          </x-responsive-nav-link>
-                        </div>
-
+                
+                       
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -101,6 +91,8 @@
             </x-responsive-nav-link>
         </div>
         
+     
+    
         <!-- 🔽 Todoページへのリンクを追加 -->
     <div class="pt-2 pb-3 space-y-1">
       <x-responsive-nav-link :href="route('tasks.index')" :active="request()->routeIs('tasks.index')">

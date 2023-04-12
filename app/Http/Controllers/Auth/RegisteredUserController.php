@@ -65,4 +65,12 @@ class RegisteredUserController extends Controller
 
     return redirect(RouteServiceProvider::HOME);
  }
+ 
+ public function showPersonalities(Request $request)
+{
+    $personalities = $request->input('personalities') ?? '';
+    return view('personalities', ['personalities' => $personalities]);
+}
+
+    
 }

@@ -58,6 +58,10 @@ form button:hover {
     border-color: #1f2937;
     cursor: pointer;
 }
+
+a:hover {
+  color: red; /* カーソルを当てたときの色を定義 */
+}
 </style>
 
 <x-app-layout>  
@@ -75,12 +79,26 @@ form button:hover {
                 <!--<a href="{{ route('reservation.index') }}">-->
                 <!--    予約一覧-->
                 <!--</a>-->
+            <!--               <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">-->
+            <!--  <a href="{{ route('reservation.create') }}">-->
+            <!--    <h3 class="text-left font-bold text-lg text-gray-dark dark:text-gray-200">予約作成２</h3>-->
+            <!--  </a>-->
+            <!--</div>-->
+            <br>
                 <form action="{{ route('adminlogout') }}" method="POST">
                     @csrf
                     <button type="submit" class="inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-300 disabled:opacity-25 transition">
                         Logout
                     </button>
                 </form>
+                
+        
+                @if(Auth::user()->administrator)
+                    <a href="{{ route('reservation.administrator_page') }}">
+                        >>管理者ページはこちら<<
+                    </a>
+                @else
+                @endif
             </div>
         </div>
     </div>
