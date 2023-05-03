@@ -42,17 +42,19 @@ h1 {
 
 
     
-    table {
+     table {
         border-spacing: 0;
         border-collapse: collapse;
-        border-bottom: 1px solid #aaa;
-        color: #555;
         width: 100%;
+        max-width: 1000px;
+        margin: 100px auto;
+        margin-top: 20px;
+        margin-bottom: 50px; 
     }
 
     th {
         background-color: #B19CD9; /*紫色の背景色*/
-        border-top: 1px solid #aaa;
+      　border: 1px solid #ddd;
         padding: 10px 0 10px 6px;
         text-align: center;
         font-weight: bold;
@@ -60,10 +62,10 @@ h1 {
     }
 
     td {
-        
-        border-top: 1px solid #aaa;
+        border: 1px solid #ddd; /* すべての側に罫線を適用 */
         padding: 10px 0 10px 6px;
         text-align: center;
+        color: #808080; /* 灰色の文字色 */
     }
 
     td:last-child {
@@ -87,9 +89,16 @@ h1 {
     button:hover {
         text-decoration: underline;
     }
+    
+     .table-rounded {
+        margin-bottom: 50px;
+        border-radius: 10px;
+        overflow: hidden;
+      
+    }
+    
 </style>
  
-</style>
 <x-app-layout>
       <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -105,7 +114,7 @@ h1 {
     </div>
     </br>
    
-    <table>
+     <table class="table table-striped table-rounded">
         <tr>
             <th>タスク</th>
             <th>アクション</th>

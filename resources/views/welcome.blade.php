@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Escapany</title>
+        <title>ESCAPANY</title>
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -18,6 +18,7 @@
             body {
                 font-family: 'Nunito', sans-serif;
                 background-color: #fce0e6;
+                background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
             }
         </style>
          @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -28,35 +29,20 @@
      <img src= "{{ asset('image/icon_es01.png')}}" alt="アイコン" style="width: 50px; height: auto;">
     
 
-      <span class="ml-3 text-xl">Escapany</span>
     </a>
-    <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-       @if (Route::has('admin.login'))
-        @auth
-         <a href="{{ url('Admin/dashboard') }}"  class="mr-5 hover:text-gray-900">コーチマイページ</a>
-          @else
-            <a href="{{ route('admin.login') }}"  class="mr-5 hover:text-gray-900">コーチログイン</a>
-            
-                 @if (Route::has('admin.register'))
-            <a href="{{ route('admin.register') }}"  class="mr-5 hover:text-gray-900">コーチ新規登録</a>
-                @endif
-             @endauth
-         </nav>
-     @endif
      
-     <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-     @if (Route::has('login'))
-         @auth
-          <a href="{{ url('/dashboard') }}" class="mr-5 hover:text-gray-900">ユーザーマイページ</a>
-              @else
-              <a href="{{ route('login') }}"  class="mr-5 hover:text-gray-900">ユーザーログイン</a>
-      
-                   @if (Route::has('register'))
-      <a href="{{ route('register') }}" class="mr-5 hover:text-gray-900">ユーザー新規登録</a>
-            @endif
-       @endauth
-     </nav>
-     @endif
+    <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base" style="text-align: right;">
+  @if (Route::has('login'))
+    @auth
+      <a href="{{ url('/dashboard') }}" class="mr-5 hover:text-gray-900">ユーザーマイページ</a>
+    @else
+      <a href="{{ route('login') }}"  class="mr-5 hover:text-gray-900">ユーザーログイン</a>
+      @if (Route::has('register'))
+        <a href="{{ route('register') }}" class="mr-5 hover:text-gray-900">ユーザー新規登録</a>
+      @endif
+    @endauth
+  @endif
+</nav>
 </div>
 </header>
 <section class="text-gray-600 body-font">
@@ -65,11 +51,11 @@
     <div style="display: flex; justify-content: center;">
      <img src="{{ asset('image/icon_es03.png') }}" alt="アイコン" style="width: 600px; height: auto;">
     </div>
-      <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">会社に依存しない働き方を一緒に考え伴走する
-      <br>コーチングサロン</br></h1>
+      <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-600 mb-4">コーチングサロン
+      <br>「ESCAPANY」
+      <br>人生迷子よ、みんなで逃げよ。</br></h1>
       <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">
-      <br>漠然と将来に不安を抱きながらまだ行動に移せていない人や、</br>
-        <br>やる気はあるのに目的地がわからないキャリア迷子さんたち。</br>
+      <br>漠然と将来に不安を抱きながら、</br>まだ行動に移せていない人や、やる気はあるのに目的地がわからない人生迷子さんたち。</br>
 
          <br>自分らしい道をコーチや仲間と見つけ、
     敷かれたレールから一緒に脱走しちゃお？</br></p>
@@ -82,12 +68,11 @@
     <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
        <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
         <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0">
-          　<svg class="h-8 w-8 text-purple-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <circle cx="11" cy="11" r="8" />  <line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
+          　<svg class="h-8 w-7 text-purple-500"  viewBox="2 0 30 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <circle cx="11" cy="11" r="8" />  <line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
         </div>
         <div class="flex-grow">
           <h2 class="text-gray-900 text-lg title-font font-medium mb-3">コーチ検索</h2>
-          <p class="leading-relaxed text-base">性格診断×気になるジャンルでマッチした自分に合ったコーチと隔週コーチング！
-          　　　　<br>自分だけの道を見つけて、ゴールに向けて走り出す。　</br>
+          <p class="leading-relaxed text-base">性格診断×気になるジャンルでマッチした<br>自分に合ったコーチと隔週コーチング！<br>自分だけの道を見つけ、ゴールに向けて走り出す。　</br>
           </p>
         </div>
       </div>
@@ -96,8 +81,8 @@
         <svg class="h-8 w-8 text-purple-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <polyline points="9 11 12 14 22 4" />  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>
         </div>
         <div class="flex-grow">
-          <h2 class="text-gray-900 text-lg title-font font-medium mb-3">TO DO LIST機能</h2>
-          <p class="leading-relaxed text-base">TODOリスト機能を使って、
+          <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Todoリスト機能</h2>
+          <p class="leading-relaxed text-base">Todoリスト機能を使って、
           次回のコーチングまでにやっておくこと整理。
           　<br>行動するために必要なことが一目瞭然にわかる。</br>
           </p>
@@ -113,8 +98,9 @@
         </div>
         <div class="flex-grow">
           <h2 class="text-gray-900 text-lg title-font font-medium mb-3">コミュニティに参加</h2>
-          <p class="leading-relaxed text-base">興味のあるジャンルのコミュニティに参加して仲間をGETできる。
-　　　 　<br>情報交換やイベントを自主開催するなど、モチベーションを維持。<br></p>
+          <p class="leading-relaxed text-base">興味のあるジャンルのコミュニティに参加して<br>仲間をGETしよう。<br>
+　　　 情報交換やイベントを自主開催し、
+　　　 <br>モチベーションが維持できる。</p>
         </div>
       </div>
     </div>
@@ -128,28 +114,42 @@
   <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
     <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
       <img src="{{ asset('image/icon_es01.png')}}" alt="アイコン" style="width: 50px; height: auto;">
-      <span class="ml-3 text-xl">Escapany</span>
+      <span class="ml-3 text-xl">ESCAPANY</span>
     </a>
-    <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2023 Escapany —
+    <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2023 ESCAPANY —
       <a href="https://twitter.com/kochaman0802" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@kochan0802</a>
     </p>
-    <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-      <a class="text-gray-500">
-        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-        </svg>
-      </a>
-      <a class="ml-3 text-gray-500">
-        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-          <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-        </svg>
-      </a>
-      <a class="ml-3 text-gray-500">
-        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-          <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-          <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-        </svg>
-      </a>
+    <!--<span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">-->
+    <!--  <a class="text-gray-500">-->
+    <!--    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">-->
+    <!--      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>-->
+    <!--    </svg>-->
+    <!--  </a>-->
+    <!--  <a class="ml-3 text-gray-500">-->
+    <!--    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">-->
+    <!--      <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>-->
+    <!--    </svg>-->
+    <!--  </a>-->
+    <!--  <a class="ml-3 text-gray-500">-->
+    <!--    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">-->
+    <!--      <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>-->
+    <!--      <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>-->
+    <!--    </svg>-->
+    <!--  </a>-->
+      
+       <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+       @if (Route::has('admin.login'))
+        @auth
+         <a href="{{ url('Admin/dashboard') }}"  class="mr-5 hover:text-gray-900">コーチマイページ</a>
+          @else
+            <a href="{{ route('admin.login') }}"  class="mr-5 hover:text-gray-900">コーチログイン</a>
+            
+                 @if (Route::has('admin.register'))
+            <a href="{{ route('admin.register') }}"  class="mr-5 hover:text-gray-900">コーチ新規登録</a>
+                @endif
+             @endauth
+         </nav>
+     @endif
     </span>
   </div>
 </footer> 

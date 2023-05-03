@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Character;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\User;
@@ -10,13 +11,13 @@ use Auth;
 
 class CoachController extends Controller {
     
-    public function show($id)
+ public function show($id)
     {
         $coach = Admin::find($id);
         $url = $coach->url;
         $profile_image = $coach->profile_image;
 
-        return view('admin.show', compact('coach', 'url' ,'profile_image'));
+        return view('admin.show', compact('coach', 'url', 'profile_image'));
     }
   
    public function store($id)
@@ -26,25 +27,35 @@ class CoachController extends Controller {
     return redirect()->route('admin.show', ['id' => $id]);
 }
 
-  
+
     public function index()
     {
-        $personalities = auth()->user()->personalities;
+        
+        // $u_personalities =Auth::user()->personalities;
+        $user = User::with('personalities')->find(auth()->id());
+        // $personalities = $user->personalities;
+        // $personalities = auth()->user()->personalities;
         $coaches = Coach::when($personalities, function ($query, $personalities) {
         return $query->where('personalities', $personalities);
     })->get();
-    
+        // $recommend = $personalities->characters;
+        // $recommend = $personalities->characters()
+        // ->orderBy('score', 'desc')->get();
+
+        
     // ビューに渡すデータを準備
     $data = [
         'coaches' => $coaches,
+        'personalities' => $personalities, 
     ];
-    
+
     // list.blade.phpを表示
-    return view('list', $data);
+   return response()->view('list', compact('data' ,'recommend'));
         
         // $coaches = Coach::all();
         // return view('admin.list', compact('coaches'));
     }
+
 
     public function select(Request $request)
     {
@@ -80,9 +91,7 @@ class CoachController extends Controller {
                     foreach($admins as $admin){
                      $admin->image_path = $admin->getImagePath();
             }
-                 
                 return response()->view('favorites.index', compact('admins'));
               }
-
-     
+              
 }

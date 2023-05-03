@@ -108,7 +108,7 @@ Route::get('admin/list', [CoachController::class, 'select'])
     
 Route::get('admin/show', [CoachController::class, 'show'])
     ->name('admin.show');
-
+    
 Route::post('admin/show/favorites', [FavoriteController::class, 'store'])->name('favorites');
 Route::post('admin/show/unfavorites', [FavoriteController::class, 'destroy'])->name('unfavorites');
 

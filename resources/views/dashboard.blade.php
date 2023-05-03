@@ -9,13 +9,14 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("ログインしました") }}
+                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSflBJpIgXvA15W5mXYbbzkcF5nTdOhGDwxh_hXs73Hq4NFH8w/viewform" target="_blank">
+                    {{ __(" >>初回ヒアリングシートに記入お願いします<<") }}
                     <br>
                      <br>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSflBJpIgXvA15W5mXYbbzkcF5nTdOhGDwxh_hXs73Hq4NFH8w/viewform" target="_blank">
-                    <x-input-label :value="__('ー初回ヒアリングシートにご記入がまだの方はこちらー')" for="personality-test" />
-                </a>
-                 </br>
+                        <button class="hover:text-pink-500 text-gray-900">
+ 
+
+                     </br>
                     </br>
                  
                 </div>
@@ -23,4 +24,8 @@
             
         </div>
     </div>
+    
+   
+  </a>
+</button>
 </x-app-layout>

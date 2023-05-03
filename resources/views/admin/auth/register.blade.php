@@ -133,7 +133,7 @@
                   required autofocus autocomplete="url" />
     <x-input-error :messages="$errors->get('url')" class="mt-2" />
     </div>
-             <a href="https://docs.google.com/document/d/1quVNhpH1UmWbipTuR7TPM3oev4IrOeU_QcQZMYnj1bc/edit?usp=sharing" target="_blank">
+             <a href="https://drive.google.com/file/d/1ShbgOh0gBIQbUyUAOr1o3t3xIn0xEXnj/view?usp=share_link" target="_blank">
                 <x-input-label :value="__('ーアイテマスURL作成方法はこちらー')" for="personality-test" />
             </a>
         

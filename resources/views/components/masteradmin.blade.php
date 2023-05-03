@@ -16,7 +16,7 @@
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">コーチリスト</a>
+        <a class="navbar-brand" href="#"></a>
       </div>
     </div>
   </nav>
@@ -26,7 +26,7 @@
   @yield('table')
   <footer class="footer">
     <div class="container">
-      <p class="text-muted">コーチリスト</p>
+      <p class="text-muted"></p>
     </div>
   </footer>
   <script src="{{ asset('dist/js/vendor/jquery.min.js') }}"></script>

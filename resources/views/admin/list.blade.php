@@ -1,13 +1,20 @@
 <style>
-    body {
-        background-color: pink;
-    }
+    /*body {*/
+    /*    background-color: pink;*/
+    /*}*/
     
+   
     
     /* フォーム要素 */
     .form-group {
         margin-bottom: 20px;
     }
+    
+    .label-rounded {
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
     
     .form-group label {
         padding: 10px 10px;
@@ -32,6 +39,7 @@
         max-width: 1000px;
         margin: 100px auto;
         margin-top: 20px;
+        margin-bottom: 50px; 
     }
     
     th,
@@ -68,6 +76,14 @@
           border-radius: 50px; /* 角丸を50pxに指定 */
     }
     
+    
+    .table-rounded {
+        margin-bottom: 50px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    
 </style>
 
 
@@ -79,21 +95,28 @@
         </h2>
     </x-slot>
     
-   
+
+
     
    <x-masteradmin>
     <x-slot name="content">
 
+
         <!--=================================================
         Form
         ==================================================-->
-        
+
        @section('content')
+          <p style="color: #808080;">{{ Auth::user()->name }}さんの性格診断の結果
+   <br>{{ Auth::user()->personalities }}</p>
+           
+       
+           
         <form action="{{ route('admin.list') }}" method="get" role="form">
             @csrf
 
             <div class="form-group">
-                <label for="number" class="control-label col-xs-2　text-center">興味のあるジャンル</label>
+                <label for="number" class="control-label col-xs-2　text-center label-rounded">興味のあるジャンル</label>
                 <div class="col-xs-10">
                     <select name="category_name" class="form-control select select-primary mbl">
                         <option value="やりたいこと探し" {{ $category_name == 'やりたいこと探し' ? 'selected' : '' }}>やりたいこと探し</option> 
@@ -138,20 +161,27 @@
                             <option value="エンターテイナー" {{ $personality == 'エンターテイナー' ? 'selected' : '' }}>エンターテイナー</option>
                         </optgroup>
                         </select>
+            <br>
+            <br>
             <div class="form-group">
               <div class="col-xs-offset-2 col-xs-10 text-center">
                 <button type="submit" class="btn btn-default ">検索</button>
+        
+                <button type="reset" class="btn btn-default ">リセット</button>
             </div>
+            </div>
+        
             </form>
        
             @endsection
             
             @section('table')
-          
-          
+                  
+
+           
               <!-- loop -->
               
-            <table class="table table-striped">
+            <table class="table table-striped table-rounded">
               <thead>
                 <tr>
                   <th>名前</th>
@@ -201,5 +231,6 @@
             </div>
             @endsection
             
+      
         </x-masteradmin>
 </x-app-layout>

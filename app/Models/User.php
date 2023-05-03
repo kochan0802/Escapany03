@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -54,6 +55,7 @@ class User extends Authenticatable
     
   }
   
+  
   public function favorites()
   {
     return $this->hasMany(Admin::class);
@@ -78,5 +80,20 @@ class User extends Authenticatable
 {
     return $this->hasMany(Reservation::class);
 }
-  
+
+// public function personalities()
+//     {
+//         return $this->hasMany(Personality::class);
+//     }
+    
+public function personalities()
+{
+return $this->hasMany('App\Models\Character');
+}
+
+   public function characters()
+  {
+    return $this->hasMany(Character::class, 'user_personalities');
+  }
+
 }
