@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Coach;
 use App\Models\Admin;
@@ -113,18 +114,19 @@ class FavoriteController extends Controller
         return redirect()->route('admin.show', ['admin' => $admin->id]);
   }
   
-   public function mydata()
-  {
-    // Userモデルに定義したリレーションを使用してデータを取得する．
-    $admins = User::query()
-      ->find(Auth::user()->id)
-      ->favorites()
-      ->orderBy('id','desc')
-      ->get();
- 
-    return response()->view('favorites.index', compact('admins'));
-  }
+public function mydata()
+{
+    $admins = DB::table('admins')
+        ->join('categories', 'admins.category_id', '=', 'categories.category_id')
+        ->join('user_admin', 'admins.id', '=', 'user_admin.admin_id')
+        ->where('user_admin.user_id', Auth::user()->id)
+        ->select('admins.*', 'categories.category_name')
+        ->orderBy('admins.id', 'desc')
+        ->get();
 
-  
+    return response()->view('favorites.index', compact('admins'));
+}
+
+
 }
 

@@ -44,11 +44,14 @@
                       </x-primary-button>
                     </form>
                     @endif
-                  
-            </div>
-            
-               <!--<img src="{{ $admin->profile_image }}" alt="profile_image" width="100" height="0" style="float:right;"/>-->
-              
+                  </div>
+                 
+                    
+                      @if ($admin->profile_image)
+                           <img src="{{ asset($admin->profile_image) }}" width="100" height="0" style="float:right;" alt="コーチイメージ画像" />
+                      @endif
+                
+
 
             
             <div class="flex flex-col mb-4">
