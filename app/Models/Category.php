@@ -1,13 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    public function coaches()
+    public function admins()
     {
-        return $this->hasMany('App\Coach');
+        return $this->hasMany(Admin::class);
     }
 }

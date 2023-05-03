@@ -110,7 +110,11 @@
           <p style="color: #808080;">{{ Auth::user()->name }}さんの性格診断の結果
    <br>{{ Auth::user()->personalities }}</p>
            
-       
+         @foreach ($coachCharacters as $coachCharacter)
+    <div class="text-gray-500">{{ $coachCharacter->admin_personalities }}</div>
+@endforeach
+
+
            
         <form action="{{ route('admin.list') }}" method="get" role="form">
             @csrf
@@ -162,7 +166,7 @@
                         </optgroup>
                         </select>
             <br>
-            <br>
+            
             <div class="form-group">
               <div class="col-xs-offset-2 col-xs-10 text-center">
                 <button type="submit" class="btn btn-default ">検索</button>

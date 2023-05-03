@@ -56,7 +56,9 @@
             <div class="flex flex-col mb-4">
               <p class="mb-2 uppercase font-bold text-lg text-gray-800 dark:text-gray-200">ジャンル</p>
               <p class="py-2 px-3 text-gray-800 dark:text-gray-200" id="category_name">
-                {{$coach->category_name}}
+            @foreach ($category as $cat)
+              <div>{{ $cat->category_name }}</div>
+          @endforeach             
               </p>
             </div>
             <div class="flex flex-col mb-4">
@@ -70,6 +72,8 @@
                 {{$coach->license}}
               </p>
             </div>
+            
+            
             
           <div class="flex items-center mt-4">
               <a href="{{ $url }}">

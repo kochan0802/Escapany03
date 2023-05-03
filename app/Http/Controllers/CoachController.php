@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Character;
+
 use Illuminate\Http\Request;
+use App\Models\Character;
+use App\Models\Category;
 use App\Models\Admin;
 use App\Models\User;
 use App\Models\Coach;
@@ -14,11 +16,18 @@ class CoachController extends Controller {
  public function show($id)
     {
         $coach = Admin::find($id);
+        $coach_id = $coach -> category_id; 
+        $category = Category::where('category_id', $coach_id)
+    ->get();
         $url = $coach->url;
         $profile_image = $coach->profile_image;
 
-        return view('admin.show', compact('coach', 'url', 'profile_image'));
+        return view('admin.show', compact('coach', 'url', 'profile_image' , 'category'));
     }
+
+
+
+
   
    public function store($id)
 {
@@ -30,14 +39,17 @@ class CoachController extends Controller {
 
     public function index()
     {
-        
         // $u_personalities =Auth::user()->personalities;
         $user = User::with('personalities')->find(auth()->id());
-        // $personalities = $user->personalities;
-        // $personalities = auth()->user()->personalities;
+        $personalities = $user->personalities;
+        $personalities = auth()->user()->personalities;
         $coaches = Coach::when($personalities, function ($query, $personalities) {
         return $query->where('personalities', $personalities);
     })->get();
+    
+        // スコアが高い順にコーチを並べ替え
+    // $recommend =  $personalities->sortByDesc('score')->take(4);
+    
         // $recommend = $personalities->characters;
         // $recommend = $personalities->characters()
         // ->orderBy('score', 'desc')->get();
@@ -48,8 +60,11 @@ class CoachController extends Controller {
         'coaches' => $coaches,
         'personalities' => $personalities, 
     ];
+    
+   
 
     // list.blade.phpを表示
+    
    return response()->view('list', compact('data' ,'recommend'));
         
         // $coaches = Coach::all();
@@ -59,24 +74,33 @@ class CoachController extends Controller {
 
     public function select(Request $request)
     {
-        $category_name = $request->input('category_name');
-        $personality = $request->input('personality');
-        $query = Admin::query();
-        $query->join('categories', function ($query) {
-            $query->on('admins.category_id', '=', 'categories.category_id');
-        });
+        //  $user = Character::with('personalities')->find(auth()->id());
+        //  dd($user);
+        // $personalities = $user->personalities;
+        $personalities = auth()->user()->personalities;
+       $coachCharacters = Character::where('user_personalities', $personalities)
+    ->orderBy('score', 'desc')
+    ->get();
+                   
+$category_name = $request->input('category_name');
+$personality = $request->input('personality');
+$query = Admin::query();
+$query->join('categories', function ($query) {
+    $query->on('admins.category_id', '=', 'categories.category_id');
+});
 
-        if (!empty($personality)) {
-            $query->where('personalities', 'like', '%' . $personality . '%');
-        }
+if (!empty($personality)) {
+    $query->where('personalities', 'like', '%' . $personality . '%');
+}
 
-        if (!empty($category_name)) {
-            $query->where('category_name', 'like', '%' . $category_name . '%');
-        }
+if (!empty($category_name)) {
+    $query->where('category_name', 'like', '%' . $category_name . '%');
+}
 
-        $coaches = $query->paginate(5);
+$coaches = $query->paginate(5);
 
-        return view('admin.list', compact('coaches', 'category_name', 'personality'));
+return view('admin.list', compact('coaches', 'category_name', 'personality', 'coachCharacters'));
+
     }
  
               public function mydata()
@@ -87,7 +111,6 @@ class CoachController extends Controller {
                   ->admins()
                   ->orderBy('name','desc')
                   ->get();
-                 
                     foreach($admins as $admin){
                      $admin->image_path = $admin->getImagePath();
             }
