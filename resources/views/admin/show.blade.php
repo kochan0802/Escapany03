@@ -53,14 +53,14 @@
                 {{$coach->name}}
               </p>
             </div>
-            <div class="flex flex-col mb-4">
-              <p class="mb-2 uppercase font-bold text-lg text-gray-800 dark:text-gray-200">ジャンル</p>
-              <p class="py-2 px-3 text-gray-800 dark:text-gray-200" id="category_name">
+           
             @foreach ($category as $cat)
-              <div>{{ $cat->category_name }}</div>
+             <div class="flex flex-col mb-4">
+              <p class="mb-2 uppercase font-bold text-lg text-gray-800 dark:text-gray-200">ジャンル</p>
+              <p class="py-2 px-3 text-gray-800 dark:text-gray-200" id="category_name">{{ $cat->category_name }} </p> </div>
           @endforeach             
-              </p>
-            </div>
+             
+           
             <div class="flex flex-col mb-4">
               <p class="mb-2 uppercase font-bold text-lg text-gray-800 dark:text-gray-200">キャリア</p>
               <p class="py-2 px-3 text-gray-800 dark:text-gray-200" id="career">

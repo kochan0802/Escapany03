@@ -83,6 +83,25 @@
         overflow: hidden;
     }
 
+.coach-characters {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .coach-character {
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #ccc;
+  }
+  
+  .rounded {
+  border-radius: 20px;
+    
+    
+ .form-control.select {
+  border-radius: 10px;
+}    
     
 </style>
 
@@ -91,12 +110,10 @@
    
       <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-           コーチリスト
+           コーチ予約
         </h2>
     </x-slot>
     
-
-
     
    <x-masteradmin>
     <x-slot name="content">
@@ -107,19 +124,24 @@
         ==================================================-->
 
        @section('content')
-          <p style="color: #808080;">{{ Auth::user()->name }}さんの性格診断の結果
-   <br>{{ Auth::user()->personalities }}</p>
+       
+ <p style="color: #808080; font-weight: bold; text-align: center;">{{ Auth::user()->name }}さんの性格診断の結果<br>{{ Auth::user()->personalities }}</p>
+         
            
-         @foreach ($coachCharacters as $coachCharacter)
-    <div class="text-gray-500">{{ $coachCharacter->admin_personalities }}</div>
-@endforeach
+    　　<div class="coach-characters">
+    　<p style="color: #808080;  font-weight: bold;">{{ Auth::user()->personalities }}に合う性格の相性ベスト4</p>
+    　<br>
+      @foreach ($coachCharacters->take(4) as $key => $coachCharacter)
+        <div class="coach-character">{{ $key+1 }}位: {{ $coachCharacter->admin_personalities }}</div>
+      @endforeach
+    </div>
 
 
            
         <form action="{{ route('admin.list') }}" method="get" role="form">
             @csrf
 
-            <div class="form-group">
+            <div class="form-group  text-center  rounded">
                 <label for="number" class="control-label col-xs-2　text-center label-rounded">興味のあるジャンル</label>
                 <div class="col-xs-10">
                     <select name="category_name" class="form-control select select-primary mbl">
@@ -136,8 +158,8 @@
                     </select>
                 </div>
 
-            <div class="form-group">
-                <label for="number" class="control-label col-xs-2　text-center">自分の性格診断結果</label>
+            <div class="form-group text-center  rounded">
+                <label for="number" class="control-label col-xs-2　text-center">{{ Auth::user()->personalities }}に合うコーチの性格診断結果</label>
                 <div class="col-xs-10">
                     <select name="personality" class="form-control select select-primary mbl">
                         <optgroup label="分析家">
@@ -165,6 +187,7 @@
                             <option value="エンターテイナー" {{ $personality == 'エンターテイナー' ? 'selected' : '' }}>エンターテイナー</option>
                         </optgroup>
                         </select>
+            <br>
             <br>
             
             <div class="form-group">

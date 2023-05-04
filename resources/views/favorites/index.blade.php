@@ -1,11 +1,12 @@
 
 
 <x-app-layout>
-  <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-      {{ __('コーチプロフィール詳細') }}
-    </h2>
-  </x-slot>
+   <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+           お気に入りコーチ
+        </h2>
+    </x-slot>
+    
 
   <div class="py-12">
     <!--<div class="max-w-7xl mx-auto sm:w-8/12 md:w-1/2 lg:w-5/12">-->
@@ -50,9 +51,7 @@
                       @if ($admin->profile_image)
                            <img src="{{ asset($admin->profile_image) }}" width="100" height="0" style="float:right;" alt="コーチイメージ画像" />
                       @endif
-                
-
-
+              
             
             <div class="flex flex-col mb-4">
               <p class="mb-2 uppercase font-bold text-lg text-gray-800 dark:text-gray-200">名前</p>
@@ -60,12 +59,13 @@
                 {{$admin->name}}
               </p>
             </div>
-            <div class="flex flex-col mb-4">
+            
+    
+             <div class="flex flex-col mb-4">
               <p class="mb-2 uppercase font-bold text-lg text-gray-800 dark:text-gray-200">ジャンル</p>
-              <p class="py-2 px-3 text-gray-800 dark:text-gray-200" id="category_name">
-                {{$admin->category_name}}
-              </p>
-            </div>
+              <p class="py-2 px-3 text-gray-800 dark:text-gray-200" id="category_name">  {{ $admin->category_name }}</p> </div>
+         
+  
             <div class="flex flex-col mb-4">
               <p class="mb-2 uppercase font-bold text-lg text-gray-800 dark:text-gray-200">キャリア</p>
               <p class="py-2 px-3 text-gray-800 dark:text-gray-200" id="career">

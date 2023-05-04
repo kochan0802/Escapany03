@@ -50,7 +50,8 @@ class FavoriteController extends Controller
 {
     $user = User::find(Auth::id());
     $admin = Admin::find($request->id);
-
+    $coach_id  = $coach -> category_id; 
+    
     $user->admins()->attach($admin, ['user_id' => Auth::id()]);
 
     return redirect()->route('admin.show', ['admin' => $admin->id]);
@@ -66,11 +67,11 @@ class FavoriteController extends Controller
      
     public function show($id)
 {
-    // $coach = Admin::find($id);
-    // $url = $coach->url;
-    // $profile_image = $coach->profile_image;
+    $coach = Admin::find($id);
+    $url = $coach->url;
+    $profile_image = $coach->profile_image;
 
-    // return view('favorites.index', compact('coach', 'url', 'profile_image'));
+    return view('favorites.index', compact('coach', 'url', 'profile_image'));
 }
     /**
      * Show the form for editing the specified resource.
@@ -105,10 +106,9 @@ class FavoriteController extends Controller
     public function destroy(Request $request)
   {  
        $user = User::find(Auth::id());
-        // dd($user);
+      
         
         $admin = Admin::find($request->id);
-        // dd($admin);
      $user->admins()->detach($admin->id, ['admin_id' => $admin->id, 'user_id' => Auth::id()]);
         
         return redirect()->route('admin.show', ['admin' => $admin->id]);
@@ -117,15 +117,19 @@ class FavoriteController extends Controller
 public function mydata()
 {
     $admins = DB::table('admins')
+      
         ->join('categories', 'admins.category_id', '=', 'categories.category_id')
         ->join('user_admin', 'admins.id', '=', 'user_admin.admin_id')
         ->where('user_admin.user_id', Auth::user()->id)
         ->select('admins.*', 'categories.category_name')
         ->orderBy('admins.id', 'desc')
         ->get();
+        
+ 
 
     return response()->view('favorites.index', compact('admins'));
 }
+
 
 
 }

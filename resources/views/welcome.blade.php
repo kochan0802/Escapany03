@@ -18,7 +18,7 @@
             body {
                 font-family: 'Nunito', sans-serif;
                 background-color: #fce0e6;
-                background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+                background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 90%);
             }
         </style>
          @vite(['resources/css/app.css', 'resources/js/app.js'])

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 use App\Models\Character;
 use App\Models\Category;
@@ -25,10 +24,6 @@ class CoachController extends Controller {
         return view('admin.show', compact('coach', 'url', 'profile_image' , 'category'));
     }
 
-
-
-
-  
    public function store($id)
 {
     $coach = Admin::find($id);
