@@ -142,7 +142,7 @@
             @csrf
 
             <div class="form-group  text-center  rounded">
-                <label for="number" class="control-label col-xs-2　text-center label-rounded">興味のあるジャンル</label>
+                <label for="number" class="control-label col-xs-2　text-center label-rounded">{{ Auth::user()->name }}さんの興味のあるジャンル</label>
                 <div class="col-xs-10">
                     <select name="category_name" class="form-control select select-primary mbl">
                         <option value="やりたいこと探し" {{ $category_name == 'やりたいこと探し' ? 'selected' : '' }}>やりたいこと探し</option> 
