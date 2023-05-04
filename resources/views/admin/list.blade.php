@@ -97,7 +97,7 @@
   
   .rounded {
   border-radius: 20px;
-    
+  }    
     
  .form-control.select {
   border-radius: 10px;
@@ -197,8 +197,7 @@
                 <button type="reset" class="btn btn-default ">リセット</button>
             </div>
             </div>
-        
-            </form>
+        </form>
        
             @endsection
             

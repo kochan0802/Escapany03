@@ -49,8 +49,8 @@ class FavoriteController extends Controller
  public function store(Request $request)
 {
     $user = User::find(Auth::id());
+     
     $admin = Admin::find($request->id);
-    $coach_id  = $coach -> category_id; 
     
     $user->admins()->attach($admin, ['user_id' => Auth::id()]);
 
@@ -68,6 +68,7 @@ class FavoriteController extends Controller
     public function show($id)
 {
     $coach = Admin::find($id);
+  
     $url = $coach->url;
     $profile_image = $coach->profile_image;
 
@@ -116,19 +117,23 @@ class FavoriteController extends Controller
   
 public function mydata()
 {
-    $admins = DB::table('admins')
-      
-        ->join('categories', 'admins.category_id', '=', 'categories.category_id')
-        ->join('user_admin', 'admins.id', '=', 'user_admin.admin_id')
-        ->where('user_admin.user_id', Auth::user()->id)
-        ->select('admins.*', 'categories.category_name')
-        ->orderBy('admins.id', 'desc')
-        ->get();
-        
+    $query = Admin::query();
  
+    $query->join('categories', function ($query) {
+        $query->on('admins.category_id', '=', 'categories.category_id');
+    })
+    ->join('user_admin', function ($query) {
+        $query->on('admins.id', '=', 'user_admin.admin_id');
+    })
+    ->where('user_admin.user_id', Auth::user()->id)
+    ->select('admins.*', 'categories.category_name')
+    ->orderBy('admins.id', 'desc');
 
-    return response()->view('favorites.index', compact('admins'));
+    $admins = $query->get();
+   
+    return response()->view('favorites.index', compact('admins', 'category_name'));
 }
+
 
 
 

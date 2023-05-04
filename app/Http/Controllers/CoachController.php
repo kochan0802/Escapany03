@@ -98,18 +98,23 @@ return view('admin.list', compact('coaches', 'category_name', 'personality', 'co
 
     }
  
-              public function mydata()
-              {
-                // Userモデルに定義したリレーションを使用してデータを取得する．
-                $admins = User::query()
-                  ->find(Auth::user()->id)
-                  ->admins()
-                  ->orderBy('name','desc')
-                  ->get();
-                    foreach($admins as $admin){
-                     $admin->image_path = $admin->getImagePath();
-            }
-                return response()->view('favorites.index', compact('admins'));
-              }
+             public function mydata()
+{
+    // Userモデルに定義したリレーションを使用してデータを取得する．
+    $query = User::find(Auth::user()->id)
+        ->admins()
+        ->join('categories', 'admins.category_id', '=', 'categories.category_id')
+        ->orderBy('admins.name', 'desc')
+        ->select('admins.*', 'categories.category_name');
+
+    $admins = $query->get();
+
+    foreach ($admins as $admin) {
+        $admin->image_path = $admin->getImagePath();
+    }
+
+    return response()->view('favorites.index', compact('admins'));
+}
+
               
 }
