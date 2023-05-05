@@ -8,8 +8,8 @@
         <title>{{ config('app.name', 'ESCAPANY') }}</title>
                
         <!-- Add the favicon link tags here -->
-    <link rel="icon" href="{{ asset('images/favicon.ico')}}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{ asset('images/favicon.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('image/favicon.ico')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('image/favicon.ico')}}" type="image/x-icon">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
