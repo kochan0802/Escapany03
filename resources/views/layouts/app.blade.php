@@ -6,7 +6,12 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'ESCAPANY') }}</title>
-        
+               
+        <!-- Add the favicon link tags here -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+
     
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
