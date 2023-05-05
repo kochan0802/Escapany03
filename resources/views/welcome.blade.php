@@ -72,7 +72,7 @@
         </div>
         <div class="flex-grow">
           <h2 class="text-gray-900 text-lg title-font font-medium mb-3">コーチ検索</h2>
-          <p class="leading-relaxed text-base">性格診断×気になるジャンルでマッチした<br>自分に合ったコーチと隔週コーチング！<br>自分だけの道を見つけ、ゴールに向けて走り出す。　</br>
+          <p class="leading-relaxed text-base">性格診断×気になるジャンルでマッチしたコーチと隔週コーチング！<br>自分だけの道を見つけて走り出す。
           </p>
         </div>
       </div>
@@ -83,8 +83,7 @@
         <div class="flex-grow">
           <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Todoリスト機能</h2>
           <p class="leading-relaxed text-base">Todoリスト機能を使って、
-          次回のコーチングまでにやっておくこと整理。
-          　<br>行動するために必要なことが一目瞭然にわかる。</br>
+          次のコーチングまでにやっておくこと整理。可視化することで、行動に繋がる！</br>
           </p>
           </a>
         </div>
@@ -98,9 +97,7 @@
         </div>
         <div class="flex-grow">
           <h2 class="text-gray-900 text-lg title-font font-medium mb-3">コミュニティに参加</h2>
-          <p class="leading-relaxed text-base">興味のあるジャンルのコミュニティに参加して<br>仲間をGETしよう。<br>
-　　　 情報交換やイベントを自主開催し、
-　　　 <br>モチベーションが維持できる。</p>
+          <p class="leading-relaxed text-base">興味のあるジャンルのコミュニティに<br>参加して仲間をGETしよう。情報交換やイベントを自主開催し、モチベーションを維持できる。</p>
         </div>
       </div>
     </div>
