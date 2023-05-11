@@ -8,7 +8,7 @@
         <title>{{ config('app.name', 'ESCAPANY') }}</title>
                
         <!-- Add the favicon link tags here -->
-    <link rel="icon" href="{{ asset('image/favicon.ico')}}" type="image/x-icon">
+    <link rel="icon" href="https://tabime.sakura.ne.jp/escapany01/" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('image/favicon.ico')}}" type="image/x-icon">
 
         <!-- Fonts -->
